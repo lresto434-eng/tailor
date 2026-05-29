@@ -289,19 +289,20 @@
     .services-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.2rem;
+      gap: 1.4rem;
     }
 
     .srv-card {
       background: var(--white);
-      border-radius: 4px;
-      padding: 2rem 1.6rem;
+      border: 1px solid var(--brown-lt);
       border-left: 3px solid var(--terra);
-      transition: box-shadow 0.2s, transform 0.2s;
+      border-radius: 6px;
+      padding: 2rem 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
     .srv-card:hover {
-      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
-      transform: translateY(-3px);
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
     }
     .srv-icon { font-size: 1.8rem; margin-bottom: 1rem; }
     .srv-card h3 {
