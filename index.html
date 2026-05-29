@@ -538,30 +538,9 @@
       .hero-inner, .inner { max-width: 1280px; }
     }
 
-    /* Small desktop / tablet landscape */
-    @media (max-width: 1100px) {
-      .nav-links { gap: 1.6rem; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-
-    /* Tablet portrait */
-    @media (max-width: 900px) {
-      .hero { padding: 5.5rem 2rem 5rem; }
-      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
-      .hero-right { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
-      .stat-card { flex: 1 1 calc(50% - 0.5rem); }
-
-      .why-grid { grid-template-columns: repeat(2, 1fr); }
-      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
-      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
-    }
-
-    /* Tablet → mobile: collapse nav */
-    @media (max-width: 768px) {
+    /* Tablet landscape / small desktop — collapse nav here */
+    @media (max-width: 960px) {
       header { padding: 0 1.4rem; }
-      section { padding: 4.5rem 1.4rem; }
-      .hero { padding: 5rem 1.4rem 4rem; }
 
       .nav-links {
         display: none;
@@ -578,11 +557,19 @@
         box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       }
       .nav-links.open { display: flex; }
-      .nav-links a { font-size: 0.95rem; padding: 0.3rem 0; }
+      .nav-links a { font-size: 0.95rem; padding: 0.3rem 0; color: rgba(255,255,255,0.85); }
       .hamburger { display: flex; }
 
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-right { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+      .stat-card { flex: 1 1 calc(50% - 0.5rem); }
+
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .form-row { grid-template-columns: 1fr; }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
     }
 
     /* Mobile */
@@ -1064,29 +1051,25 @@
 
     applyLang(lang);
 
-    (function() {
-      var btn = document.getElementById('langBtn');
-      function switchLang(e) {
+    function onTap(id, fn) {
+      var el = document.getElementById(id);
+      var busy = false;
+      el.addEventListener('touchend', function(e) {
         e.preventDefault();
-        e.stopPropagation();
-        lang = lang === 'el' ? 'en' : 'el';
-        applyLang(lang);
-      }
-      btn.addEventListener('click', switchLang);
-      btn.addEventListener('touchend', switchLang);
-    })();
+        if (busy) return; busy = true;
+        fn(); setTimeout(function(){ busy = false; }, 300);
+      });
+      el.addEventListener('click', fn);
+    }
 
-    (function() {
-      var btn = document.getElementById('hamburger');
-      var nav = document.getElementById('navLinks');
-      function toggleNav(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        nav.classList.toggle('open');
-      }
-      btn.addEventListener('click', toggleNav);
-      btn.addEventListener('touchend', toggleNav);
-    })();
+    onTap('langBtn', function() {
+      lang = lang === 'el' ? 'en' : 'el';
+      applyLang(lang);
+    });
+
+    onTap('hamburger', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
 
     document.querySelectorAll('.nav-links a').forEach(function(a) {
       a.addEventListener('click', function() {
