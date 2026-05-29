@@ -1051,23 +1051,26 @@
 
     applyLang(lang);
 
-    function onTap(id, fn) {
+    function bindBtn(id, fn) {
       var el = document.getElementById(id);
-      var busy = false;
+      var didTouch = false;
       el.addEventListener('touchend', function(e) {
         e.preventDefault();
-        if (busy) return; busy = true;
-        fn(); setTimeout(function(){ busy = false; }, 300);
+        didTouch = true;
+        fn();
       });
-      el.addEventListener('click', fn);
+      el.addEventListener('click', function() {
+        if (didTouch) { didTouch = false; return; }
+        fn();
+      });
     }
 
-    onTap('langBtn', function() {
+    bindBtn('langBtn', function() {
       lang = lang === 'el' ? 'en' : 'el';
       applyLang(lang);
     });
 
-    onTap('hamburger', function() {
+    bindBtn('hamburger', function() {
       document.getElementById('navLinks').classList.toggle('open');
     });
 
