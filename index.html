@@ -106,7 +106,8 @@
       background: none;
       border: none;
       cursor: pointer;
-      padding: 4px;
+      padding: 10px;
+      margin: -10px;
     }
     .hamburger span {
       display: block;
@@ -559,18 +560,20 @@
 
       .nav-links {
         display: none;
-        position: absolute;
+        position: fixed;
         top: 66px;
         left: 0; right: 0;
         flex-direction: column;
         align-items: flex-start;
         background: #111;
-        padding: 1.2rem 1.5rem;
-        gap: 1.2rem;
+        padding: 1.4rem 1.5rem;
+        gap: 1.3rem;
         border-bottom: 2px solid var(--terra);
-        z-index: 199;
+        z-index: 300;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
       }
       .nav-links.open { display: flex; }
+      .nav-links a { font-size: 0.95rem; padding: 0.3rem 0; }
       .hamburger { display: flex; }
 
       .form-row { grid-template-columns: 1fr; }
