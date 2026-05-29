@@ -116,7 +116,7 @@
 
     /* ── HERO ── */
     .hero {
-      background: var(--charcoal);
+      background: linear-gradient(150deg, var(--cream) 0%, var(--cream-dark) 100%);
       padding: 7rem 2.5rem 6rem;
       position: relative;
       overflow: hidden;
@@ -142,8 +142,8 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      background: rgba(193,105,79,0.15);
-      border: 1px solid rgba(193,105,79,0.4);
+      background: rgba(193,105,79,0.12);
+      border: 1px solid rgba(193,105,79,0.35);
       color: var(--terra);
       padding: 0.35rem 0.9rem;
       border-radius: 3px;
@@ -158,7 +158,7 @@
       font-size: clamp(2.6rem, 5vw, 4.2rem);
       font-weight: 900;
       line-height: 1.05;
-      color: var(--white);
+      color: var(--charcoal);
       letter-spacing: -0.02em;
       text-transform: uppercase;
       margin-bottom: 1.5rem;
@@ -167,7 +167,7 @@
 
     .hero-sub {
       font-size: 1rem;
-      color: rgba(255,255,255,0.55);
+      color: #666;
       line-height: 1.7;
       margin-bottom: 2.5rem;
       max-width: 420px;
@@ -198,13 +198,14 @@
     }
 
     .stat-card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
+      background: var(--white);
+      border: 1px solid var(--brown-lt);
       border-radius: 4px;
       padding: 1.4rem 1.6rem;
       display: flex;
       align-items: center;
       gap: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
     }
     .stat-num {
       font-size: 2rem;
@@ -215,7 +216,7 @@
     }
     .stat-label {
       font-size: 0.85rem;
-      color: rgba(255,255,255,0.65);
+      color: var(--brown);
       line-height: 1.4;
     }
 
