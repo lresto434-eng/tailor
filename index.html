@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="el,en">
   <title>Επιδιορθώσεις ρούχων – Atelier | Καλαμαριά</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
@@ -1035,7 +1037,7 @@
       }
     };
 
-    let lang = 'el';
+    let lang = localStorage.getItem('lang') || 'el';
 
     function applyLang(l) {
       const t = T[l];
@@ -1049,7 +1051,10 @@
       });
       document.getElementById('langBtn').textContent = l === 'el' ? 'EN' : 'ΕΛ';
       document.documentElement.lang = l;
+      localStorage.setItem('lang', l);
     }
+
+    applyLang(lang);
 
     document.getElementById('langBtn').addEventListener('click', function() {
       lang = lang === 'el' ? 'en' : 'el';
