@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Επιδιορθώσεις ρούχων – Atelier | Καλαμαριά</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --cream:           #FAF7F2;
-      --cream-dark:      #F0E8D8;
-      --section-bg:      #F5F0E8;
-      --terracotta:      #C1694F;
-      --terracotta-dark: #A8563E;
-      --charcoal:        #2C2C2C;
-      --brown:           #8B7355;
-      --brown-light:     #D4C4A8;
-      --white:           #FFFFFF;
-      --star:            #E8A045;
+      --cream:      #FAF7F2;
+      --cream-dark: #F0E8D8;
+      --section-alt:#F5F0E8;
+      --terra:      #C1694F;
+      --terra-dark: #A8563E;
+      --charcoal:   #1E1E1E;
+      --brown:      #8B7355;
+      --brown-lt:   #D4C4A8;
+      --white:      #FFFFFF;
+      --star:       #E8A045;
     }
 
     html { scroll-behavior: smooth; }
@@ -28,7 +28,7 @@
       font-family: 'Inter', sans-serif;
       background: var(--cream);
       color: var(--charcoal);
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
     /* ── HEADER ── */
@@ -36,71 +36,66 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      background: var(--white);
-      border-bottom: 1px solid var(--brown-light);
-      padding: 0 2rem;
-      height: 68px;
+      background: var(--charcoal);
+      padding: 0 2.5rem;
+      height: 66px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
     }
 
     .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
+      font-size: 0.8rem;
       font-weight: 700;
-      color: var(--charcoal);
-      text-decoration: none;
-      line-height: 1.2;
-      flex-shrink: 0;
-    }
-    .logo span {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.7rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: var(--brown);
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo em {
+      font-style: normal;
+      color: var(--terra);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.2rem;
     }
     .nav-links a {
       text-decoration: none;
-      color: var(--charcoal);
-      font-size: 0.88rem;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
       font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       transition: color 0.2s;
-      white-space: nowrap;
     }
-    .nav-links a:hover { color: var(--terracotta); }
+    .nav-links a:hover { color: var(--white); }
 
     .header-right {
       display: flex;
       align-items: center;
       gap: 0.75rem;
-      flex-shrink: 0;
     }
 
     .lang-btn {
-      background: var(--terracotta);
-      color: var(--white);
-      border: none;
-      padding: 0.35rem 0.85rem;
-      border-radius: 20px;
-      font-size: 0.78rem;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       cursor: pointer;
       font-family: 'Inter', sans-serif;
-      transition: background 0.2s;
+      transition: all 0.2s;
     }
-    .lang-btn:hover { background: var(--terracotta-dark); }
+    .lang-btn:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
 
     .hamburger {
       display: none;
@@ -115,253 +110,351 @@
       display: block;
       width: 22px;
       height: 2px;
-      background: var(--charcoal);
+      background: var(--white);
       border-radius: 2px;
     }
 
     /* ── HERO ── */
     .hero {
-      background: linear-gradient(150deg, var(--cream) 0%, var(--cream-dark) 100%);
-      padding: 6rem 2rem 5.5rem;
-      text-align: center;
+      background: var(--charcoal);
+      padding: 7rem 2.5rem 6rem;
       position: relative;
       overflow: hidden;
     }
-    .hero::before {
+    .hero::after {
       content: '';
       position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse at 25% 35%, rgba(193,105,79,0.07) 0%, transparent 55%),
-        radial-gradient(ellipse at 75% 75%, rgba(139,115,85,0.09) 0%, transparent 50%);
-      pointer-events: none;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--terra);
     }
 
-    .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
 
-    .eyebrow {
+    .hero-left {}
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(193,105,79,0.15);
+      border: 1px solid rgba(193,105,79,0.4);
+      color: var(--terra);
+      padding: 0.35rem 0.9rem;
+      border-radius: 3px;
       font-size: 0.75rem;
-      letter-spacing: 0.16em;
+      font-weight: 700;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 600;
-      margin-bottom: 1.1rem;
+      margin-bottom: 1.8rem;
     }
 
     .hero h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 700;
-      color: var(--charcoal);
-      line-height: 1.15;
-      margin-bottom: 0.6rem;
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
     }
-    .hero h1 em {
-      font-style: normal;
-      color: var(--terracotta);
-    }
-
-    .hero-tagline {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1rem, 2.2vw, 1.3rem);
-      font-style: italic;
-      color: var(--brown);
-      margin-bottom: 1.2rem;
-    }
+    .hero h1 span { color: var(--terra); }
 
     .hero-sub {
-      font-size: 0.97rem;
-      color: #666;
-      max-width: 480px;
-      margin: 0 auto 1.8rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 420px;
     }
 
-    .hero-stars {
-      display: flex;
+    .hero-cta {
+      display: inline-flex;
       align-items: center;
-      justify-content: center;
-      gap: 0.4rem;
-      margin-bottom: 2.2rem;
-      font-size: 0.88rem;
-      color: var(--brown);
-    }
-    .stars { color: var(--star); }
-
-    .btn {
-      display: inline-block;
-      background: var(--terracotta);
+      gap: 0.6rem;
+      background: var(--terra);
       color: var(--white);
-      padding: 0.85rem 2.1rem;
-      border-radius: 4px;
+      padding: 1rem 2.2rem;
+      border-radius: 3px;
       text-decoration: none;
-      font-weight: 600;
-      font-size: 0.93rem;
-      letter-spacing: 0.02em;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       transition: background 0.2s, transform 0.15s;
     }
-    .btn:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
+    .hero-cta:hover { background: var(--terra-dark); transform: translateY(-2px); }
+    .hero-cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; }
 
-    /* ── SHARED SECTIONS ── */
-    section { padding: 5rem 2rem; }
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--terra);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.4;
+    }
+
+    /* ── SHARED ── */
+    section { padding: 5.5rem 2.5rem; }
     .inner { max-width: 1080px; margin: 0 auto; }
 
-    .sec-label {
-      font-size: 0.73rem;
+    .sec-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--terracotta);
-      font-weight: 600;
-      margin-bottom: 0.6rem;
+      color: var(--terra);
+      border-bottom: 2px solid var(--terra);
+      padding-bottom: 3px;
+      margin-bottom: 1rem;
     }
 
     .sec-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.55rem, 3vw, 2.2rem);
-      font-weight: 700;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1.1;
       color: var(--charcoal);
-      margin-bottom: 2.8rem;
+      margin-bottom: 3rem;
+    }
+
+    /* ── WHY CHOOSE US ── */
+    #why { background: var(--cream); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--brown-lt);
+      border: 1px solid var(--brown-lt);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .why-item {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      transition: background 0.2s;
+    }
+    .why-item:hover { background: var(--cream); }
+
+    .why-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .why-item h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .why-item p {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.65;
     }
 
     /* ── SERVICES ── */
-    #services { background: var(--cream); }
+    #services { background: var(--section-alt); }
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.4rem;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.2rem;
     }
 
-    .card {
+    .srv-card {
       background: var(--white);
-      border: 1px solid var(--brown-light);
-      border-radius: 8px;
-      padding: 1.8rem 1.5rem;
-      transition: box-shadow 0.25s, transform 0.2s;
+      border-radius: 4px;
+      padding: 2rem 1.6rem;
+      border-left: 3px solid var(--terra);
+      transition: box-shadow 0.2s, transform 0.2s;
     }
-    .card:hover {
-      box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+    .srv-card:hover {
+      box-shadow: 0 12px 32px rgba(0,0,0,0.09);
       transform: translateY(-3px);
     }
-    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
-    .card h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
+    .srv-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .srv-card h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       margin-bottom: 0.55rem;
     }
-    .card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
+    .srv-card p { font-size: 0.87rem; color: #666; line-height: 1.65; }
 
-    /* ── HOURS & LOCATION ── */
-    #hours { background: var(--section-bg); }
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--charcoal); }
+    #how .sec-title { color: var(--white); }
+    #how .sec-tag { color: var(--terra); border-color: var(--terra); }
 
-    .hours-grid {
+    .steps-grid {
       display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 3rem;
-      align-items: start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
     }
 
-    .hours-block h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 1.4rem;
+    .step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 4px;
     }
 
-    .hours-table { width: 100%; border-collapse: collapse; }
-    .hours-table tr { border-bottom: 1px solid var(--brown-light); }
-    .hours-table tr:last-child { border-bottom: none; }
-    .hours-table td { padding: 0.65rem 0; font-size: 0.93rem; }
-    .hours-table td:first-child { color: var(--brown); font-weight: 500; }
-    .hours-table td:last-child { text-align: right; }
-
-    .info-items { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--brown-light); }
-    .info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.7rem;
+    .step-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(193,105,79,0.2);
+      line-height: 1;
       margin-bottom: 0.8rem;
-      font-size: 0.93rem;
     }
-    .info-item .ic { color: var(--terracotta); margin-top: 1px; }
-    .info-item a { color: var(--charcoal); text-decoration: none; }
-    .info-item a:hover { color: var(--terracotta); }
-
-    .map-wrap {
-      border-radius: 8px;
-      overflow: hidden;
-      border: 1px solid var(--brown-light);
-      height: 360px;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    .step h3 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 0.6rem;
     }
-    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .step p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
 
     /* ── REVIEWS ── */
     #reviews { background: var(--cream); }
 
-    .rating-badge {
-      display: inline-flex;
+    .rating-row {
+      display: flex;
       align-items: center;
-      gap: 0.45rem;
-      background: var(--terracotta);
-      color: var(--white);
-      padding: 0.45rem 1.1rem;
-      border-radius: 30px;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 2.8rem;
+      gap: 1rem;
+      margin-bottom: 3rem;
     }
+    .big-score {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .score-detail { display: flex; flex-direction: column; gap: 0.3rem; }
+    .score-stars { color: var(--star); font-size: 1.1rem; }
+    .score-sub { font-size: 0.8rem; color: var(--brown); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
 
     .reviews-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 1.4rem;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
     }
 
     .review-card {
       background: var(--white);
-      border: 1px solid var(--brown-light);
-      border-radius: 8px;
-      padding: 1.7rem;
+      border: 1px solid var(--brown-lt);
+      border-radius: 4px;
+      padding: 1.8rem;
     }
-    .review-stars { color: var(--star); margin-bottom: 0.9rem; font-size: 0.95rem; }
-    .review-text {
+    .rv-stars { color: var(--star); font-size: 0.9rem; margin-bottom: 1rem; }
+    .rv-text {
       font-size: 0.92rem;
-      color: #555;
+      color: #444;
       font-style: italic;
-      line-height: 1.72;
-      margin-bottom: 1.2rem;
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
     }
-    .review-author { font-weight: 600; font-size: 0.88rem; }
-    .review-date { font-size: 0.8rem; color: var(--brown); margin-top: 0.2rem; }
+    .rv-name { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .rv-date { font-size: 0.78rem; color: var(--brown); margin-top: 0.2rem; }
 
     /* ── CONTACT ── */
-    #contact { background: var(--section-bg); }
+    #contact { background: var(--section-alt); }
 
     .contact-grid {
       display: grid;
       grid-template-columns: 1fr 1.6fr;
-      gap: 4rem;
+      gap: 5rem;
       align-items: start;
     }
 
-    .contact-blurb {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.7;
-      margin-bottom: 1.8rem;
+    .contact-info-block h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
     }
 
-    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+    .info-item .ic { color: var(--terra); }
+    .info-item a { color: var(--charcoal); text-decoration: none; }
+    .info-item a:hover { color: var(--terra); }
+
+    .hours-mini { margin-top: 2rem; }
+    .hours-mini h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--brown-lt);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:first-child { color: var(--brown); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    .form-group { display: flex; flex-direction: column; gap: 0.38rem; }
-    .form-group label { font-size: 0.84rem; font-weight: 500; color: var(--charcoal); }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--charcoal);
+    }
     .form-group input,
     .form-group textarea {
-      padding: 0.72rem 1rem;
-      border: 1px solid var(--brown-light);
-      border-radius: 4px;
-      font-size: 0.93rem;
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--brown-lt);
+      border-radius: 3px;
+      font-size: 0.92rem;
       font-family: 'Inter', sans-serif;
       background: var(--white);
       color: var(--charcoal);
@@ -369,80 +462,95 @@
       transition: border-color 0.2s;
     }
     .form-group input:focus,
-    .form-group textarea:focus { border-color: var(--terracotta); }
+    .form-group textarea:focus { border-color: var(--terra); }
     .form-group textarea { resize: vertical; min-height: 120px; }
 
     .btn-submit {
       align-self: flex-start;
-      background: var(--terracotta);
+      background: var(--charcoal);
       color: var(--white);
       border: none;
-      padding: 0.85rem 2rem;
-      border-radius: 4px;
-      font-size: 0.93rem;
-      font-weight: 600;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
       font-family: 'Inter', sans-serif;
       cursor: pointer;
       transition: background 0.2s;
     }
-    .btn-submit:hover { background: var(--terracotta-dark); }
+    .btn-submit:hover { background: var(--terra); }
 
-    .form-note { font-size: 0.83rem; color: var(--brown); }
+    .form-note { font-size: 0.8rem; color: var(--brown); }
 
     .form-success {
       display: none;
       background: #f0f9f0;
       border: 1px solid #b2dfb2;
-      border-radius: 8px;
+      border-radius: 4px;
       padding: 1.4rem 1.6rem;
       color: #2e6b2e;
-      font-size: 0.93rem;
+      font-size: 0.92rem;
       line-height: 1.6;
     }
 
     /* ── FOOTER ── */
     footer {
       background: var(--charcoal);
-      color: #aaa;
-      text-align: center;
-      padding: 1.8rem 2rem;
-      font-size: 0.83rem;
-      line-height: 1.7;
+      color: rgba(255,255,255,0.4);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
     }
-    footer a { color: var(--brown-light); text-decoration: none; }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
     footer a:hover { color: var(--white); }
+    .footer-brand {
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .footer-brand em { font-style: normal; color: var(--terra); }
 
     /* ── RESPONSIVE ── */
-    @media (max-width: 820px) {
-      .hours-grid,
-      .contact-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero-right { flex-direction: row; flex-wrap: wrap; }
+      .stat-card { flex: 1 1 200px; }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; }
     }
 
-    @media (max-width: 680px) {
+    @media (max-width: 640px) {
       header { padding: 0 1.2rem; }
+      section { padding: 4rem 1.2rem; }
+      .hero { padding: 5rem 1.2rem 4rem; }
 
       .nav-links {
         display: none;
         position: absolute;
-        top: 68px;
-        left: 0;
-        right: 0;
+        top: 66px;
+        left: 0; right: 0;
         flex-direction: column;
         align-items: flex-start;
-        background: var(--white);
+        background: #111;
         padding: 1.2rem 1.5rem;
-        gap: 1.1rem;
-        border-bottom: 1px solid var(--brown-light);
-        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        gap: 1.2rem;
+        border-bottom: 2px solid var(--terra);
       }
       .nav-links.open { display: flex; }
-
       .hamburger { display: flex; }
 
-      section { padding: 3.5rem 1.2rem; }
-      .hero { padding: 4rem 1.2rem 3.5rem; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .map-wrap { height: 280px; }
     }
   </style>
 </head>
@@ -451,17 +559,15 @@
   <!-- HEADER -->
   <header>
     <a class="logo" href="#">
-      Επιδιορθώσεις ρούχων
-      <span>Atelier · Καλαμαριά</span>
+      Επιδιορθώσεις &amp; <em>Atelier</em>
     </a>
-
     <nav class="nav-links" id="navLinks">
+      <a href="#why"      data-i18n="nav_why">Γιατί εμείς</a>
       <a href="#services" data-i18n="nav_services">Υπηρεσίες</a>
-      <a href="#hours"    data-i18n="nav_hours">Ώρες &amp; Τοποθεσία</a>
+      <a href="#how"      data-i18n="nav_how">Πώς λειτουργεί</a>
       <a href="#reviews"  data-i18n="nav_reviews">Κριτικές</a>
       <a href="#contact"  data-i18n="nav_contact">Επικοινωνία</a>
     </nav>
-
     <div class="header-right">
       <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
       <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -473,42 +579,80 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="hero-inner">
-      <p class="eyebrow" data-i18n="hero_eyebrow">Καλαμαριά, Θεσσαλονίκη</p>
-      <h1>Επιδιορθώσεις ρούχων &amp; <em>Atelier</em></h1>
-      <p class="hero-tagline" data-i18n="hero_tagline">Φροντίδα για κάθε ύφασμα</p>
-      <p class="hero-sub" data-i18n="hero_sub">Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων στην Καλαμαριά της Θεσσαλονίκης.</p>
-      <div class="hero-stars">
-        <span class="stars">★★★★★</span>
-        <strong>4.9</strong>
-        <span data-i18n="hero_rating_text">— βαθμολογία πελατών</span>
+      <div class="hero-left">
+        <div class="hero-badge" data-i18n="hero_badge">Καλαμαριά, Θεσσαλονίκη</div>
+        <h1 data-i18n="hero_h1">Το καλύτερο<br><span>Atelier</span><br>στην πόλη</h1>
+        <p class="hero-sub" data-i18n="hero_sub">Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων. Γρήγορα, προσεκτικά, με αγάπη για την τέχνη.</p>
+        <a class="hero-cta" href="#contact" data-i18n="hero_cta">
+          Ζητήστε προσφορά
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
       </div>
-      <a class="btn" href="#contact" data-i18n="hero_cta">Επικοινωνήστε μαζί μας</a>
+      <div class="hero-right">
+        <div class="stat-card">
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label" data-i18n="stat1">Βαθμολογία πελατών<br>στο Google</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">10+</div>
+          <div class="stat-label" data-i18n="stat2">Χρόνια εμπειρίας<br>στις επιδιορθώσεις</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">500+</div>
+          <div class="stat-label" data-i18n="stat3">Ευχαριστημένοι<br>πελάτες</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="why_tag">Γιατί εμείς</p>
+      <h2 class="sec-title" data-i18n="why_title">Η διαφορά μας</h2>
+      <div class="why-grid">
+        <div class="why-item">
+          <div class="why-icon">✂️</div>
+          <h3 data-i18n="why1_title">Ακρίβεια</h3>
+          <p data-i18n="why1_desc">Κάθε επιδιόρθωση γίνεται με μεγάλη προσοχή στη λεπτομέρεια, ώστε το αποτέλεσμα να μοιάζει καινούριο.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">⚡</div>
+          <h3 data-i18n="why2_title">Γρήγορη εξυπηρέτηση</h3>
+          <p data-i18n="why2_desc">Γνωρίζουμε ότι ο χρόνος σας έχει αξία. Οι περισσότερες εργασίες παραδίδονται σε 24–48 ώρες.</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">💰</div>
+          <h3 data-i18n="why3_title">Προσιτές τιμές</h3>
+          <p data-i18n="why3_desc">Ποιοτική δουλειά σε τιμές που σέβονται την τσέπη σας. Χωρίς κρυφές χρεώσεις.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services">
     <div class="inner">
-      <p class="sec-label" data-i18n="services_label">Υπηρεσίες</p>
+      <p class="sec-tag" data-i18n="services_tag">Υπηρεσίες</p>
       <h2 class="sec-title" data-i18n="services_title">Τι κάνουμε</h2>
       <div class="services-grid">
-        <div class="card">
-          <div class="card-icon">👖</div>
+        <div class="srv-card">
+          <div class="srv-icon">👖</div>
           <h3 data-i18n="s1_title">Στρίψιμο παντελονιών</h3>
           <p data-i18n="s1_desc">Ακριβής αλλαγή μήκους σε κάθε τύπο παντελονιού με φινίρισμα που διατηρεί το αρχικό στυλ.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🪡</div>
+        <div class="srv-card">
+          <div class="srv-icon">🪡</div>
           <h3 data-i18n="s2_title">Αντικατάσταση φερμουάρ</h3>
           <p data-i18n="s2_desc">Αντικατάσταση κατεστραμμένων φερμουάρ σε παντελόνια, φούστες, μπουφάν και τσάντες.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">👗</div>
+        <div class="srv-card">
+          <div class="srv-icon">👗</div>
           <h3 data-i18n="s3_title">Αλλαγές φορεμάτων</h3>
           <p data-i18n="s3_desc">Εφαρμογή, στένωμα, πλάτεμα και τροποποίηση φορεμάτων για τέλεια εφαρμογή στο σώμα σας.</p>
         </div>
-        <div class="card">
-          <div class="card-icon">🧵</div>
+        <div class="srv-card">
+          <div class="srv-icon">🧵</div>
           <h3 data-i18n="s4_title">Γενικές επιδιορθώσεις</h3>
           <p data-i18n="s4_desc">Ράψιμο ραφών, επιδιόρθωση σκισμάτων, αντικατάσταση κουμπιών και γενική συντήρηση ρούχων.</p>
         </div>
@@ -516,47 +660,31 @@
     </div>
   </section>
 
-  <!-- HOURS & LOCATION -->
-  <section id="hours">
+  <!-- HOW IT WORKS -->
+  <section id="how">
     <div class="inner">
-      <p class="sec-label" data-i18n="hours_label">Ώρες &amp; Τοποθεσία</p>
-      <h2 class="sec-title" data-i18n="hours_title">Πού θα μας βρείτε</h2>
-      <div class="hours-grid">
-        <div class="hours-block">
-          <h3 data-i18n="hours_sub">Ωράριο λειτουργίας</h3>
-          <table class="hours-table">
-            <tr>
-              <td data-i18n="hours_weekdays">Δευτέρα – Παρασκευή</td>
-              <td>08:00 – 17:00</td>
-            </tr>
-            <tr>
-              <td data-i18n="hours_sat">Σάββατο</td>
-              <td data-i18n="hours_closed">Κλειστά</td>
-            </tr>
-            <tr>
-              <td data-i18n="hours_sun">Κυριακή</td>
-              <td data-i18n="hours_closed">Κλειστά</td>
-            </tr>
-          </table>
-          <div class="info-items">
-            <div class="info-item">
-              <span class="ic">📍</span>
-              <span>Φιλελλήνων 7, Καλαμαριά 551 33</span>
-            </div>
-            <div class="info-item">
-              <span class="ic">📞</span>
-              <a href="tel:+302310495622">+30 231 049 5622</a>
-            </div>
-          </div>
+      <p class="sec-tag" data-i18n="how_tag">Διαδικασία</p>
+      <h2 class="sec-title" data-i18n="how_title">Πώς λειτουργεί</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 data-i18n="step1_title">Επικοινωνήστε μαζί μας</h3>
+          <p data-i18n="step1_desc">Τηλεφωνήστε μας ή στείλτε μήνυμα για να περιγράψετε τι χρειάζεστε.</p>
         </div>
-        <div class="map-wrap">
-          <iframe
-            src="https://maps.google.com/maps?q=Filellinon+7,+Kalamaria,+55133,+Greece&output=embed"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Google Maps – Φιλελλήνων 7, Καλαμαριά">
-          </iframe>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 data-i18n="step2_title">Φέρτε το ρούχο σας</h3>
+          <p data-i18n="step2_desc">Επισκεφθείτε το κατάστημά μας στη Φιλελλήνων 7 για μέτρηση και αξιολόγηση.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 data-i18n="step3_title">Εκτελούμε την εργασία</h3>
+          <p data-i18n="step3_desc">Αναλαμβάνουμε την επιδιόρθωση με ακρίβεια και προσοχή στη λεπτομέρεια.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3 data-i18n="step4_title">Παραλάβετε έτοιμο</h3>
+          <p data-i18n="step4_desc">Παραλαμβάνετε το ρούχο σας έτοιμο, σαν καινούριο, στον συμφωνημένο χρόνο.</p>
         </div>
       </div>
     </div>
@@ -565,29 +693,33 @@
   <!-- REVIEWS -->
   <section id="reviews">
     <div class="inner">
-      <p class="sec-label" data-i18n="reviews_label">Κριτικές</p>
+      <p class="sec-tag" data-i18n="reviews_tag">Κριτικές</p>
       <h2 class="sec-title" data-i18n="reviews_title">Τι λένε οι πελάτες μας</h2>
-      <div class="rating-badge">
-        <span class="stars">★</span> 4.9 &nbsp;<span data-i18n="rating_text">βαθμολογία</span>
+      <div class="rating-row">
+        <div class="big-score">4.9</div>
+        <div class="score-detail">
+          <div class="score-stars">★★★★★</div>
+          <div class="score-sub" data-i18n="rating_sub">Βαθμολογία πελατών</div>
+        </div>
       </div>
       <div class="reviews-grid">
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="r1_text">"Εξαιρετική δουλειά! Έφερα ένα παντελόνι για στρίψιμο και ήταν έτοιμο την επόμενη μέρα. Τέλεια εφαρμογή και πολύ καλή τιμή."</p>
-          <div class="review-author" data-i18n="r1_name">Μαρία Παπαδοπούλου</div>
-          <div class="review-date" data-i18n="r1_date">Μάρτιος 2025</div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r1_text">"Εξαιρετική δουλειά! Έφερα ένα παντελόνι για στρίψιμο και ήταν έτοιμο την επόμενη μέρα. Τέλεια εφαρμογή και πολύ καλή τιμή."</p>
+          <div class="rv-name" data-i18n="r1_name">Μαρία Παπαδοπούλου</div>
+          <div class="rv-date" data-i18n="r1_date">Μάρτιος 2025</div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="r2_text">"Αντικατέστησαν το φερμουάρ στο αγαπημένο μου μπουφάν που νόμιζα ότι είχε χαθεί. Γρήγορα, καθαρά και επαγγελματικά!"</p>
-          <div class="review-author" data-i18n="r2_name">Νίκος Αλεξίου</div>
-          <div class="review-date" data-i18n="r2_date">Ιανουάριος 2025</div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r2_text">"Αντικατέστησαν το φερμουάρ στο αγαπημένο μου μπουφάν που νόμιζα ότι είχε χαθεί. Γρήγορα, καθαρά και επαγγελματικά!"</p>
+          <div class="rv-name" data-i18n="r2_name">Νίκος Αλεξίου</div>
+          <div class="rv-date" data-i18n="r2_date">Ιανουάριος 2025</div>
         </div>
         <div class="review-card">
-          <div class="review-stars">★★★★★</div>
-          <p class="review-text" data-i18n="r3_text">"Έφτιαξαν το νυφικό μου φόρεμα με απίστευτη λεπτομέρεια. Πολύ φιλικοί και επαγγελματίες. Τους συστήνω ανεπιφύλακτα!"</p>
-          <div class="review-author" data-i18n="r3_name">Ελένη Κωνσταντίνου</div>
-          <div class="review-date" data-i18n="r3_date">Φεβρουάριος 2025</div>
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r3_text">"Έφτιαξαν το νυφικό μου φόρεμα με απίστευτη λεπτομέρεια. Πολύ φιλικοί και επαγγελματίες. Τους συστήνω ανεπιφύλακτα!"</p>
+          <div class="rv-name" data-i18n="r3_name">Ελένη Κωνσταντίνου</div>
+          <div class="rv-date" data-i18n="r3_date">Φεβρουάριος 2025</div>
         </div>
       </div>
     </div>
@@ -596,11 +728,11 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="inner">
-      <p class="sec-label" data-i18n="contact_label">Επικοινωνία</p>
-      <h2 class="sec-title" data-i18n="contact_title">Στείλτε μας μήνυμα</h2>
+      <p class="sec-tag" data-i18n="contact_tag">Επικοινωνία</p>
+      <h2 class="sec-title" data-i18n="contact_title">Ζητήστε προσφορά</h2>
       <div class="contact-grid">
-        <div>
-          <p class="contact-blurb" data-i18n="contact_blurb">Έχετε ρούχα που χρειάζονται επιδιόρθωση; Επικοινωνήστε μαζί μας και θα σας απαντήσουμε το συντομότερο δυνατό.</p>
+        <div class="contact-info-block">
+          <h3 data-i18n="contact_find">Βρείτε μας</h3>
           <div class="info-item">
             <span class="ic">📍</span>
             <span>Φιλελλήνων 7, Καλαμαριά 551 33</span>
@@ -609,9 +741,28 @@
             <span class="ic">📞</span>
             <a href="tel:+302310495622">+30 231 049 5622</a>
           </div>
-          <div class="info-item">
-            <span class="ic">🕐</span>
-            <span data-i18n="contact_hours">Δευτέρα–Παρασκευή, 8:00–17:00</span>
+          <div class="hours-mini">
+            <h4 data-i18n="hours_sub">Ωράριο λειτουργίας</h4>
+            <div class="hours-row">
+              <span data-i18n="hours_weekdays">Δευτέρα – Παρασκευή</span>
+              <span>08:00 – 17:00</span>
+            </div>
+            <div class="hours-row">
+              <span data-i18n="hours_sat">Σάββατο</span>
+              <span data-i18n="hours_closed">Κλειστά</span>
+            </div>
+            <div class="hours-row">
+              <span data-i18n="hours_sun">Κυριακή</span>
+              <span data-i18n="hours_closed">Κλειστά</span>
+            </div>
+          </div>
+          <div style="margin-top:2rem; border-radius:4px; overflow:hidden; border:1px solid var(--brown-lt); height:200px;">
+            <iframe
+              src="https://maps.google.com/maps?q=Filellinon+7,+Kalamaria,+55133,+Greece&output=embed"
+              loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"
+              style="width:100%;height:100%;border:none;display:block;"
+              title="Google Maps">
+            </iframe>
           </div>
         </div>
         <div>
@@ -651,25 +802,35 @@
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 Επιδιορθώσεις ρούχων – Atelier &nbsp;·&nbsp; Φιλελλήνων 7, Καλαμαριά &nbsp;·&nbsp;
-      <a href="tel:+302310495622">+30 231 049 5622</a>
-    </p>
+    <div class="footer-brand">Επιδιορθώσεις – <em>Atelier</em></div>
+    <div>© 2025 · Φιλελλήνων 7, Καλαμαριά · <a href="tel:+302310495622">+30 231 049 5622</a></div>
   </footer>
 
   <script>
     const T = {
       el: {
-        nav_services:     "Υπηρεσίες",
-        nav_hours:        "Ώρες & Τοποθεσία",
-        nav_reviews:      "Κριτικές",
-        nav_contact:      "Επικοινωνία",
-        hero_eyebrow:     "Καλαμαριά, Θεσσαλονίκη",
-        hero_tagline:     "Φροντίδα για κάθε ύφασμα",
-        hero_sub:         "Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων στην Καλαμαριά της Θεσσαλονίκης.",
-        hero_rating_text: "— βαθμολογία πελατών",
-        hero_cta:         "Επικοινωνήστε μαζί μας",
-        services_label:   "Υπηρεσίες",
-        services_title:   "Τι κάνουμε",
+        nav_why:      "Γιατί εμείς",
+        nav_services: "Υπηρεσίες",
+        nav_how:      "Πώς λειτουργεί",
+        nav_reviews:  "Κριτικές",
+        nav_contact:  "Επικοινωνία",
+        hero_badge:   "Καλαμαριά, Θεσσαλονίκη",
+        hero_h1:      "Το καλύτερο Atelier στην πόλη",
+        hero_sub:     "Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων. Γρήγορα, προσεκτικά, με αγάπη για την τέχνη.",
+        hero_cta:     "Ζητήστε προσφορά",
+        stat1:        "Βαθμολογία πελατών\nστο Google",
+        stat2:        "Χρόνια εμπειρίας\nστις επιδιορθώσεις",
+        stat3:        "Ευχαριστημένοι\nπελάτες",
+        why_tag:      "Γιατί εμείς",
+        why_title:    "Η διαφορά μας",
+        why1_title:   "Ακρίβεια",
+        why1_desc:    "Κάθε επιδιόρθωση γίνεται με μεγάλη προσοχή στη λεπτομέρεια, ώστε το αποτέλεσμα να μοιάζει καινούριο.",
+        why2_title:   "Γρήγορη εξυπηρέτηση",
+        why2_desc:    "Γνωρίζουμε ότι ο χρόνος σας έχει αξία. Οι περισσότερες εργασίες παραδίδονται σε 24–48 ώρες.",
+        why3_title:   "Προσιτές τιμές",
+        why3_desc:    "Ποιοτική δουλειά σε τιμές που σέβονται την τσέπη σας. Χωρίς κρυφές χρεώσεις.",
+        services_tag:   "Υπηρεσίες",
+        services_title: "Τι κάνουμε",
         s1_title: "Στρίψιμο παντελονιών",
         s1_desc:  "Ακριβής αλλαγή μήκους σε κάθε τύπο παντελονιού με φινίρισμα που διατηρεί το αρχικό στυλ.",
         s2_title: "Αντικατάσταση φερμουάρ",
@@ -678,16 +839,19 @@
         s3_desc:  "Εφαρμογή, στένωμα, πλάτεμα και τροποποίηση φορεμάτων για τέλεια εφαρμογή στο σώμα σας.",
         s4_title: "Γενικές επιδιορθώσεις",
         s4_desc:  "Ράψιμο ραφών, επιδιόρθωση σκισμάτων, αντικατάσταση κουμπιών και γενική συντήρηση ρούχων.",
-        hours_label:    "Ώρες & Τοποθεσία",
-        hours_title:    "Πού θα μας βρείτε",
-        hours_sub:      "Ωράριο λειτουργίας",
-        hours_weekdays: "Δευτέρα – Παρασκευή",
-        hours_sat:      "Σάββατο",
-        hours_sun:      "Κυριακή",
-        hours_closed:   "Κλειστά",
-        reviews_label:  "Κριτικές",
-        reviews_title:  "Τι λένε οι πελάτες μας",
-        rating_text:    "βαθμολογία",
+        how_tag:   "Διαδικασία",
+        how_title: "Πώς λειτουργεί",
+        step1_title: "Επικοινωνήστε μαζί μας",
+        step1_desc:  "Τηλεφωνήστε μας ή στείλτε μήνυμα για να περιγράψετε τι χρειάζεστε.",
+        step2_title: "Φέρτε το ρούχο σας",
+        step2_desc:  "Επισκεφθείτε το κατάστημά μας στη Φιλελλήνων 7 για μέτρηση και αξιολόγηση.",
+        step3_title: "Εκτελούμε την εργασία",
+        step3_desc:  "Αναλαμβάνουμε την επιδιόρθωση με ακρίβεια και προσοχή στη λεπτομέρεια.",
+        step4_title: "Παραλάβετε έτοιμο",
+        step4_desc:  "Παραλαμβάνετε το ρούχο σας έτοιμο, σαν καινούριο, στον συμφωνημένο χρόνο.",
+        reviews_tag:  "Κριτικές",
+        reviews_title:"Τι λένε οι πελάτες μας",
+        rating_sub:   "Βαθμολογία πελατών",
         r1_text:  "“Εξαιρετική δουλειά! Έφερα ένα παντελόνι για στρίψιμο και ήταν έτοιμο την επόμενη μέρα. Τέλεια εφαρμογή και πολύ καλή τιμή.”",
         r1_name:  "Μαρία Παπαδοπούλου",
         r1_date:  "Μάρτιος 2025",
@@ -697,10 +861,14 @@
         r3_text:  "“Έφτιαξαν το νυφικό μου φόρεμα με απίστευτη λεπτομέρεια. Πολύ φιλικοί και επαγγελματίες. Τους συστήνω ανεπιφύλακτα!”",
         r3_name:  "Ελένη Κωνσταντίνου",
         r3_date:  "Φεβρουάριος 2025",
-        contact_label:  "Επικοινωνία",
-        contact_title:  "Στείλτε μας μήνυμα",
-        contact_blurb:  "Έχετε ρούχα που χρειάζονται επιδιόρθωση; Επικοινωνήστε μαζί μας και θα σας απαντήσουμε το συντομότερο δυνατό.",
-        contact_hours:  "Δευτέρα–Παρασκευή, 8:00–17:00",
+        contact_tag:   "Επικοινωνία",
+        contact_title: "Ζητήστε προσφορά",
+        contact_find:  "Βρείτε μας",
+        hours_sub:      "Ωράριο λειτουργίας",
+        hours_weekdays: "Δευτέρα – Παρασκευή",
+        hours_sat:      "Σάββατο",
+        hours_sun:      "Κυριακή",
+        hours_closed:   "Κλειστά",
         f_name:       "Ονοματεπώνυμο",
         f_name_ph:    "π.χ. Μαρία Παπαδοπούλου",
         f_phone:      "Τηλέφωνο",
@@ -712,17 +880,28 @@
         f_success:    "Ευχαριστούμε! Το μήνυμά σας εστάλη. Θα επικοινωνήσουμε μαζί σας σύντομα.",
       },
       en: {
-        nav_services:     "Services",
-        nav_hours:        "Hours & Location",
-        nav_reviews:      "Reviews",
-        nav_contact:      "Contact",
-        hero_eyebrow:     "Kalamaria, Thessaloniki",
-        hero_tagline:     "Care for every fabric",
-        hero_sub:         "Professional clothing repairs and alterations in Kalamaria, Thessaloniki.",
-        hero_rating_text: "— customer rating",
-        hero_cta:         "Get in touch",
-        services_label:   "Services",
-        services_title:   "What we do",
+        nav_why:      "Why us",
+        nav_services: "Services",
+        nav_how:      "How it works",
+        nav_reviews:  "Reviews",
+        nav_contact:  "Contact",
+        hero_badge:   "Kalamaria, Thessaloniki",
+        hero_h1:      "The best Atelier in town",
+        hero_sub:     "Professional clothing repairs and alterations. Fast, careful, and crafted with care.",
+        hero_cta:     "Get a quote",
+        stat1:        "Customer rating\non Google",
+        stat2:        "Years of experience\nin alterations",
+        stat3:        "Happy customers\nserved",
+        why_tag:      "Why us",
+        why_title:    "What sets us apart",
+        why1_title:   "Precision",
+        why1_desc:    "Every repair is done with great attention to detail so the result looks brand new.",
+        why2_title:   "Fast turnaround",
+        why2_desc:    "We know your time matters. Most jobs are ready within 24–48 hours.",
+        why3_title:   "Affordable prices",
+        why3_desc:    "Quality work at prices that respect your budget. No hidden fees.",
+        services_tag:   "Services",
+        services_title: "What we do",
         s1_title: "Pants Hemming",
         s1_desc:  "Precise length alterations for all trouser types, finished to preserve the original style.",
         s2_title: "Zipper Replacement",
@@ -731,16 +910,19 @@
         s3_desc:  "Fitting, taking in, letting out, and modifying dresses for a perfect tailored fit.",
         s4_title: "General Mending",
         s4_desc:  "Seam repairs, tear fixes, button replacement, and general garment maintenance.",
-        hours_label:    "Hours & Location",
-        hours_title:    "Find us",
-        hours_sub:      "Opening hours",
-        hours_weekdays: "Monday – Friday",
-        hours_sat:      "Saturday",
-        hours_sun:      "Sunday",
-        hours_closed:   "Closed",
-        reviews_label:  "Reviews",
-        reviews_title:  "What our customers say",
-        rating_text:    "rating",
+        how_tag:   "Process",
+        how_title: "How it works",
+        step1_title: "Get in touch",
+        step1_desc:  "Call us or send a message to describe what you need.",
+        step2_title: "Bring your garment",
+        step2_desc:  "Visit our shop at Filellinon 7 for measuring and assessment.",
+        step3_title: "We do the work",
+        step3_desc:  "We carry out the repair with precision and attention to detail.",
+        step4_title: "Pick it up",
+        step4_desc:  "Collect your garment ready and looking like new, at the agreed time.",
+        reviews_tag:  "Reviews",
+        reviews_title:"What our customers say",
+        rating_sub:   "Customer rating",
         r1_text:  "“Excellent work! I brought in a pair of trousers for hemming and they were ready the next day. Perfect fit and great price.”",
         r1_name:  "Maria Papadopoulou",
         r1_date:  "March 2025",
@@ -750,10 +932,14 @@
         r3_text:  "“They altered my wedding dress with incredible attention to detail. Very friendly and professional. Highly recommend!”",
         r3_name:  "Eleni Konstantinou",
         r3_date:  "February 2025",
-        contact_label:  "Contact",
-        contact_title:  "Send us a message",
-        contact_blurb:  "Have clothes that need repairing? Get in touch and we’ll get back to you as soon as possible.",
-        contact_hours:  "Monday–Friday, 8:00–17:00",
+        contact_tag:   "Contact",
+        contact_title: "Get a quote",
+        contact_find:  "Find us",
+        hours_sub:      "Opening hours",
+        hours_weekdays: "Monday – Friday",
+        hours_sat:      "Saturday",
+        hours_sun:      "Sunday",
+        hours_closed:   "Closed",
         f_name:       "Full name",
         f_name_ph:    "e.g. Maria Papadopoulou",
         f_phone:      "Phone",
@@ -761,8 +947,8 @@
         f_message:    "Message",
         f_message_ph: "Describe what repair you need...",
         f_submit:     "Send message",
-        f_note:       "We’ll get back to you within 1–2 business days.",
-        f_success:    "Thank you! Your message has been sent. We’ll be in touch shortly.",
+        f_note:       "We'll get back to you within 1–2 business days.",
+        f_success:    "Thank you! Your message has been sent. We'll be in touch shortly.",
       }
     };
 
@@ -800,9 +986,9 @@
     function handleSubmit(e) {
       e.preventDefault();
       document.getElementById('contactForm').style.display = 'none';
-      const successEl = document.getElementById('formSuccess');
-      successEl.textContent = T[lang].f_success;
-      successEl.style.display = 'block';
+      const el = document.getElementById('formSuccess');
+      el.textContent = T[lang].f_success;
+      el.style.display = 'block';
     }
   </script>
 </body>
