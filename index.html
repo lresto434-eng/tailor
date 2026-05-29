@@ -316,9 +316,7 @@
     .srv-card p { font-size: 0.87rem; color: #666; line-height: 1.65; }
 
     /* ── HOW IT WORKS ── */
-    #how { background: var(--charcoal); }
-    #how .sec-title { color: var(--white); }
-    #how .sec-tag { color: var(--terra); border-color: var(--terra); }
+    #how { background: var(--cream); }
 
     .steps-grid {
       display: grid;
@@ -329,14 +327,20 @@
     .step {
       position: relative;
       padding: 2rem 1.5rem;
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid var(--brown-lt);
       border-radius: 4px;
+      background: var(--white);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
     }
 
     .step-num {
       font-size: 3.5rem;
       font-weight: 900;
-      color: rgba(193,105,79,0.2);
+      color: rgba(193,105,79,0.18);
       line-height: 1;
       margin-bottom: 0.8rem;
     }
@@ -345,10 +349,10 @@
       font-weight: 800;
       letter-spacing: 0.05em;
       text-transform: uppercase;
-      color: var(--white);
+      color: var(--charcoal);
       margin-bottom: 0.6rem;
     }
-    .step p { font-size: 0.85rem; color: rgba(255,255,255,0.5); line-height: 1.65; }
+    .step p { font-size: 0.85rem; color: #666; line-height: 1.65; }
 
     /* ── REVIEWS ── */
     #reviews { background: var(--cream); }
