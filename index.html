@@ -93,6 +93,8 @@
       cursor: pointer;
       font-family: 'Inter', sans-serif;
       transition: all 0.2s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
     .lang-btn:hover {
       color: var(--white);
@@ -1062,10 +1064,17 @@
 
     applyLang(lang);
 
-    document.getElementById('langBtn').addEventListener('click', function() {
-      lang = lang === 'el' ? 'en' : 'el';
-      applyLang(lang);
-    });
+    (function() {
+      var btn = document.getElementById('langBtn');
+      function switchLang(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        lang = lang === 'el' ? 'en' : 'el';
+        applyLang(lang);
+      }
+      btn.addEventListener('click', switchLang);
+      btn.addEventListener('touchend', switchLang);
+    })();
 
     (function() {
       var btn = document.getElementById('hamburger');
