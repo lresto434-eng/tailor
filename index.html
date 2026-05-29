@@ -163,7 +163,7 @@
       text-transform: uppercase;
       margin-bottom: 1.5rem;
     }
-    .hero h1 span { color: var(--terra); }
+    .hero h1 .brand { color: var(--terra); }
 
     .hero-sub {
       font-size: 1rem;
@@ -604,8 +604,8 @@
       <a href="#contact"  data-i18n="nav_contact">Επικοινωνία</a>
     </nav>
     <div class="header-right">
-      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
-      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <button class="lang-btn" id="langBtn">EN</button>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -616,7 +616,7 @@
     <div class="hero-inner">
       <div class="hero-left">
         <div class="hero-badge" data-i18n="hero_badge">Καλαμαριά, Θεσσαλονίκη</div>
-        <h1 data-i18n="hero_h1">Το καλύτερο<br><span>Atelier</span><br>στην πόλη</h1>
+        <h1><span data-i18n="hero_h1_a">Το καλύτερο</span><br><span class="brand">Atelier</span><br><span data-i18n="hero_h1_b">στην πόλη</span></h1>
         <p class="hero-sub" data-i18n="hero_sub">Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων. Γρήγορα, προσεκτικά, με αγάπη για την τέχνη.</p>
         <a class="hero-cta" href="#contact" data-i18n="hero_cta">
           Ζητήστε προσφορά
@@ -626,15 +626,15 @@
       <div class="hero-right">
         <div class="stat-card">
           <div class="stat-num">4.9★</div>
-          <div class="stat-label" data-i18n="stat1">Βαθμολογία πελατών<br>στο Google</div>
+          <div class="stat-label" data-i18n="stat1">Βαθμολογία πελατών στο Google</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">10+</div>
-          <div class="stat-label" data-i18n="stat2">Χρόνια εμπειρίας<br>στις επιδιορθώσεις</div>
+          <div class="stat-label" data-i18n="stat2">Χρόνια εμπειρίας στις επιδιορθώσεις</div>
         </div>
         <div class="stat-card">
           <div class="stat-num">500+</div>
-          <div class="stat-label" data-i18n="stat3">Ευχαριστημένοι<br>πελάτες</div>
+          <div class="stat-label" data-i18n="stat3">Ευχαριστημένοι πελάτες</div>
         </div>
       </div>
     </div>
@@ -801,7 +801,7 @@
           </div>
         </div>
         <div>
-          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+          <form class="contact-form" id="contactForm" novalidate>
             <div class="form-row">
               <div class="form-group">
                 <label for="fname" data-i18n="f_name">Ονοματεπώνυμο</label>
@@ -850,12 +850,13 @@
         nav_reviews:  "Κριτικές",
         nav_contact:  "Επικοινωνία",
         hero_badge:   "Καλαμαριά, Θεσσαλονίκη",
-        hero_h1:      "Το καλύτερο Atelier στην πόλη",
+        hero_h1_a:    "Το καλύτερο",
+        hero_h1_b:    "στην πόλη",
         hero_sub:     "Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων. Γρήγορα, προσεκτικά, με αγάπη για την τέχνη.",
         hero_cta:     "Ζητήστε προσφορά",
-        stat1:        "Βαθμολογία πελατών\nστο Google",
-        stat2:        "Χρόνια εμπειρίας\nστις επιδιορθώσεις",
-        stat3:        "Ευχαριστημένοι\nπελάτες",
+        stat1:        "Βαθμολογία πελατών στο Google",
+        stat2:        "Χρόνια εμπειρίας στις επιδιορθώσεις",
+        stat3:        "Ευχαριστημένοι πελάτες",
         why_tag:      "Γιατί εμείς",
         why_title:    "Η διαφορά μας",
         why1_title:   "Ακρίβεια",
@@ -921,12 +922,13 @@
         nav_reviews:  "Reviews",
         nav_contact:  "Contact",
         hero_badge:   "Kalamaria, Thessaloniki",
-        hero_h1:      "The best Atelier in town",
+        hero_h1_a:    "The best",
+        hero_h1_b:    "in town",
         hero_sub:     "Professional clothing repairs and alterations. Fast, careful, and crafted with care.",
         hero_cta:     "Get a quote",
-        stat1:        "Customer rating\non Google",
-        stat2:        "Years of experience\nin alterations",
-        stat3:        "Happy customers\nserved",
+        stat1:        "Customer rating on Google",
+        stat2:        "Years of experience in alterations",
+        stat3:        "Happy customers served",
         why_tag:      "Why us",
         why_title:    "What sets us apart",
         why1_title:   "Precision",
@@ -1003,28 +1005,28 @@
       document.documentElement.lang = l;
     }
 
-    function toggleLang() {
+    document.getElementById('langBtn').addEventListener('click', function() {
       lang = lang === 'el' ? 'en' : 'el';
       applyLang(lang);
-    }
+    });
 
-    function toggleMenu() {
+    document.getElementById('hamburger').addEventListener('click', function() {
       document.getElementById('navLinks').classList.toggle('open');
-    }
+    });
 
-    document.querySelectorAll('.nav-links a').forEach(a => {
-      a.addEventListener('click', () => {
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
         document.getElementById('navLinks').classList.remove('open');
       });
     });
 
-    function handleSubmit(e) {
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
       e.preventDefault();
       document.getElementById('contactForm').style.display = 'none';
       const el = document.getElementById('formSuccess');
       el.textContent = T[lang].f_success;
       el.style.display = 'block';
-    }
+    });
   </script>
 </body>
 </html>
