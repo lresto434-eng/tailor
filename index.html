@@ -251,19 +251,20 @@
     .why-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--brown-lt);
-      border: 1px solid var(--brown-lt);
-      border-radius: 6px;
-      overflow: hidden;
+      gap: 1.4rem;
     }
 
     .why-item {
       background: var(--white);
+      border: 1px solid var(--brown-lt);
+      border-radius: 6px;
       padding: 2.5rem 2rem;
-      transition: background 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
     }
-    .why-item:hover { background: var(--cream); }
+    .why-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
 
     .why-icon {
       font-size: 1.8rem;
