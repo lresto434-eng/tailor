@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Επιδιορθώσεις ρούχων – Atelier | Καλαμαριά</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:           #FAF7F2;
+      --cream-dark:      #F0E8D8;
+      --section-bg:      #F5F0E8;
+      --terracotta:      #C1694F;
+      --terracotta-dark: #A8563E;
+      --charcoal:        #2C2C2C;
+      --brown:           #8B7355;
+      --brown-light:     #D4C4A8;
+      --white:           #FFFFFF;
+      --star:            #E8A045;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.65;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--white);
+      border-bottom: 1px solid var(--brown-light);
+      padding: 0 2rem;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--charcoal);
+      text-decoration: none;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+    .logo span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--brown);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--charcoal);
+      font-size: 0.88rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--terracotta); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      background: var(--terracotta);
+      color: var(--white);
+      border: none;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: background 0.2s;
+    }
+    .lang-btn:hover { background: var(--terracotta-dark); }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--charcoal);
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, var(--cream) 0%, var(--cream-dark) 100%);
+      padding: 6rem 2rem 5.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 25% 35%, rgba(193,105,79,0.07) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 75%, rgba(139,115,85,0.09) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner { position: relative; max-width: 680px; margin: 0 auto; }
+
+    .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      line-height: 1.15;
+      margin-bottom: 0.6rem;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--terracotta);
+    }
+
+    .hero-tagline {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1rem, 2.2vw, 1.3rem);
+      font-style: italic;
+      color: var(--brown);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-sub {
+      font-size: 0.97rem;
+      color: #666;
+      max-width: 480px;
+      margin: 0 auto 1.8rem;
+    }
+
+    .hero-stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      margin-bottom: 2.2rem;
+      font-size: 0.88rem;
+      color: var(--brown);
+    }
+    .stars { color: var(--star); }
+
+    .btn {
+      display: inline-block;
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.85rem 2.1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.93rem;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn:hover { background: var(--terracotta-dark); transform: translateY(-2px); }
+
+    /* ── SHARED SECTIONS ── */
+    section { padding: 5rem 2rem; }
+    .inner { max-width: 1080px; margin: 0 auto; }
+
+    .sec-label {
+      font-size: 0.73rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terracotta);
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .sec-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 2.8rem;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--cream); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      padding: 1.8rem 1.5rem;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .card:hover {
+      box-shadow: 0 10px 28px rgba(0,0,0,0.09);
+      transform: translateY(-3px);
+    }
+    .card-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.55rem;
+    }
+    .card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
+
+    /* ── HOURS & LOCATION ── */
+    #hours { background: var(--section-bg); }
+
+    .hours-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hours-block h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1.4rem;
+    }
+
+    .hours-table { width: 100%; border-collapse: collapse; }
+    .hours-table tr { border-bottom: 1px solid var(--brown-light); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td { padding: 0.65rem 0; font-size: 0.93rem; }
+    .hours-table td:first-child { color: var(--brown); font-weight: 500; }
+    .hours-table td:last-child { text-align: right; }
+
+    .info-items { margin-top: 1.8rem; padding-top: 1.5rem; border-top: 1px solid var(--brown-light); }
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.7rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.93rem;
+    }
+    .info-item .ic { color: var(--terracotta); margin-top: 1px; }
+    .info-item a { color: var(--charcoal); text-decoration: none; }
+    .info-item a:hover { color: var(--terracotta); }
+
+    .map-wrap {
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--brown-light);
+      height: 360px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--cream); }
+
+    .rating-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: var(--terracotta);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--brown-light);
+      border-radius: 8px;
+      padding: 1.7rem;
+    }
+    .review-stars { color: var(--star); margin-bottom: 0.9rem; font-size: 0.95rem; }
+    .review-text {
+      font-size: 0.92rem;
+      color: #555;
+      font-style: italic;
+      line-height: 1.72;
+      margin-bottom: 1.2rem;
+    }
+    .review-author { font-weight: 600; font-size: 0.88rem; }
+    .review-date { font-size: 0.8rem; color: var(--brown); margin-top: 0.2rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--section-bg); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-blurb {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+    }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1.1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.38rem; }
+    .form-group label { font-size: 0.84rem; font-weight: 500; color: var(--charcoal); }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.72rem 1rem;
+      border: 1px solid var(--brown-light);
+      border-radius: 4px;
+      font-size: 0.93rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--terracotta); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      align-self: flex-start;
+      background: var(--terracotta);
+      color: var(--white);
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 4px;
+      font-size: 0.93rem;
+      font-weight: 600;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--terracotta-dark); }
+
+    .form-note { font-size: 0.83rem; color: var(--brown); }
+
+    .form-success {
+      display: none;
+      background: #f0f9f0;
+      border: 1px solid #b2dfb2;
+      border-radius: 8px;
+      padding: 1.4rem 1.6rem;
+      color: #2e6b2e;
+      font-size: 0.93rem;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      color: #aaa;
+      text-align: center;
+      padding: 1.8rem 2rem;
+      font-size: 0.83rem;
+      line-height: 1.7;
+    }
+    footer a { color: var(--brown-light); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 820px) {
+      .hours-grid,
+      .contact-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+    }
+
+    @media (max-width: 680px) {
+      header { padding: 0 1.2rem; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background: var(--white);
+        padding: 1.2rem 1.5rem;
+        gap: 1.1rem;
+        border-bottom: 1px solid var(--brown-light);
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      }
+      .nav-links.open { display: flex; }
+
+      .hamburger { display: flex; }
+
+      section { padding: 3.5rem 1.2rem; }
+      .hero { padding: 4rem 1.2rem 3.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      .map-wrap { height: 280px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="#">
+      Επιδιορθώσεις ρούχων
+      <span>Atelier · Καλαμαριά</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services" data-i18n="nav_services">Υπηρεσίες</a>
+      <a href="#hours"    data-i18n="nav_hours">Ώρες &amp; Τοποθεσία</a>
+      <a href="#reviews"  data-i18n="nav_reviews">Κριτικές</a>
+      <a href="#contact"  data-i18n="nav_contact">Επικοινωνία</a>
+    </nav>
+
+    <div class="header-right">
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <p class="eyebrow" data-i18n="hero_eyebrow">Καλαμαριά, Θεσσαλονίκη</p>
+      <h1>Επιδιορθώσεις ρούχων &amp; <em>Atelier</em></h1>
+      <p class="hero-tagline" data-i18n="hero_tagline">Φροντίδα για κάθε ύφασμα</p>
+      <p class="hero-sub" data-i18n="hero_sub">Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων στην Καλαμαριά της Θεσσαλονίκης.</p>
+      <div class="hero-stars">
+        <span class="stars">★★★★★</span>
+        <strong>4.9</strong>
+        <span data-i18n="hero_rating_text">— βαθμολογία πελατών</span>
+      </div>
+      <a class="btn" href="#contact" data-i18n="hero_cta">Επικοινωνήστε μαζί μας</a>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="inner">
+      <p class="sec-label" data-i18n="services_label">Υπηρεσίες</p>
+      <h2 class="sec-title" data-i18n="services_title">Τι κάνουμε</h2>
+      <div class="services-grid">
+        <div class="card">
+          <div class="card-icon">👖</div>
+          <h3 data-i18n="s1_title">Στρίψιμο παντελονιών</h3>
+          <p data-i18n="s1_desc">Ακριβής αλλαγή μήκους σε κάθε τύπο παντελονιού με φινίρισμα που διατηρεί το αρχικό στυλ.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🪡</div>
+          <h3 data-i18n="s2_title">Αντικατάσταση φερμουάρ</h3>
+          <p data-i18n="s2_desc">Αντικατάσταση κατεστραμμένων φερμουάρ σε παντελόνια, φούστες, μπουφάν και τσάντες.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">👗</div>
+          <h3 data-i18n="s3_title">Αλλαγές φορεμάτων</h3>
+          <p data-i18n="s3_desc">Εφαρμογή, στένωμα, πλάτεμα και τροποποίηση φορεμάτων για τέλεια εφαρμογή στο σώμα σας.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🧵</div>
+          <h3 data-i18n="s4_title">Γενικές επιδιορθώσεις</h3>
+          <p data-i18n="s4_desc">Ράψιμο ραφών, επιδιόρθωση σκισμάτων, αντικατάσταση κουμπιών και γενική συντήρηση ρούχων.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOURS & LOCATION -->
+  <section id="hours">
+    <div class="inner">
+      <p class="sec-label" data-i18n="hours_label">Ώρες &amp; Τοποθεσία</p>
+      <h2 class="sec-title" data-i18n="hours_title">Πού θα μας βρείτε</h2>
+      <div class="hours-grid">
+        <div class="hours-block">
+          <h3 data-i18n="hours_sub">Ωράριο λειτουργίας</h3>
+          <table class="hours-table">
+            <tr>
+              <td data-i18n="hours_weekdays">Δευτέρα – Παρασκευή</td>
+              <td>08:00 – 17:00</td>
+            </tr>
+            <tr>
+              <td data-i18n="hours_sat">Σάββατο</td>
+              <td data-i18n="hours_closed">Κλειστά</td>
+            </tr>
+            <tr>
+              <td data-i18n="hours_sun">Κυριακή</td>
+              <td data-i18n="hours_closed">Κλειστά</td>
+            </tr>
+          </table>
+          <div class="info-items">
+            <div class="info-item">
+              <span class="ic">📍</span>
+              <span>Φιλελλήνων 7, Καλαμαριά 551 33</span>
+            </div>
+            <div class="info-item">
+              <span class="ic">📞</span>
+              <a href="tel:+302310495622">+30 231 049 5622</a>
+            </div>
+          </div>
+        </div>
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=Filellinon+7,+Kalamaria,+55133,+Greece&output=embed"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Google Maps – Φιλελλήνων 7, Καλαμαριά">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="inner">
+      <p class="sec-label" data-i18n="reviews_label">Κριτικές</p>
+      <h2 class="sec-title" data-i18n="reviews_title">Τι λένε οι πελάτες μας</h2>
+      <div class="rating-badge">
+        <span class="stars">★</span> 4.9 &nbsp;<span data-i18n="rating_text">βαθμολογία</span>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text" data-i18n="r1_text">"Εξαιρετική δουλειά! Έφερα ένα παντελόνι για στρίψιμο και ήταν έτοιμο την επόμενη μέρα. Τέλεια εφαρμογή και πολύ καλή τιμή."</p>
+          <div class="review-author" data-i18n="r1_name">Μαρία Παπαδοπούλου</div>
+          <div class="review-date" data-i18n="r1_date">Μάρτιος 2025</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text" data-i18n="r2_text">"Αντικατέστησαν το φερμουάρ στο αγαπημένο μου μπουφάν που νόμιζα ότι είχε χαθεί. Γρήγορα, καθαρά και επαγγελματικά!"</p>
+          <div class="review-author" data-i18n="r2_name">Νίκος Αλεξίου</div>
+          <div class="review-date" data-i18n="r2_date">Ιανουάριος 2025</div>
+        </div>
+        <div class="review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text" data-i18n="r3_text">"Έφτιαξαν το νυφικό μου φόρεμα με απίστευτη λεπτομέρεια. Πολύ φιλικοί και επαγγελματίες. Τους συστήνω ανεπιφύλακτα!"</p>
+          <div class="review-author" data-i18n="r3_name">Ελένη Κωνσταντίνου</div>
+          <div class="review-date" data-i18n="r3_date">Φεβρουάριος 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="inner">
+      <p class="sec-label" data-i18n="contact_label">Επικοινωνία</p>
+      <h2 class="sec-title" data-i18n="contact_title">Στείλτε μας μήνυμα</h2>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-blurb" data-i18n="contact_blurb">Έχετε ρούχα που χρειάζονται επιδιόρθωση; Επικοινωνήστε μαζί μας και θα σας απαντήσουμε το συντομότερο δυνατό.</p>
+          <div class="info-item">
+            <span class="ic">📍</span>
+            <span>Φιλελλήνων 7, Καλαμαριά 551 33</span>
+          </div>
+          <div class="info-item">
+            <span class="ic">📞</span>
+            <a href="tel:+302310495622">+30 231 049 5622</a>
+          </div>
+          <div class="info-item">
+            <span class="ic">🕐</span>
+            <span data-i18n="contact_hours">Δευτέρα–Παρασκευή, 8:00–17:00</span>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname" data-i18n="f_name">Ονοματεπώνυμο</label>
+                <input type="text" id="fname" name="name" required
+                  data-i18n-ph="f_name_ph" placeholder="π.χ. Μαρία Παπαδοπούλου">
+              </div>
+              <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" required placeholder="email@example.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fphone">
+                <span data-i18n="f_phone">Τηλέφωνο</span><span style="font-weight:400;color:var(--brown);" data-i18n="f_optional"> (προαιρετικό)</span>
+              </label>
+              <input type="tel" id="fphone" name="phone" placeholder="+30 69...">
+            </div>
+            <div class="form-group">
+              <label for="fmessage" data-i18n="f_message">Μήνυμα</label>
+              <textarea id="fmessage" name="message" required
+                data-i18n-ph="f_message_ph" placeholder="Περιγράψτε τι επιδιόρθωση χρειάζεστε..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit" data-i18n="f_submit">Αποστολή</button>
+            <p class="form-note" data-i18n="f_note">Θα σας απαντήσουμε εντός 1–2 εργάσιμων ημερών.</p>
+          </form>
+          <div class="form-success" id="formSuccess" data-i18n="f_success">
+            Ευχαριστούμε! Το μήνυμά σας εστάλη. Θα επικοινωνήσουμε μαζί σας σύντομα.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 Επιδιορθώσεις ρούχων – Atelier &nbsp;·&nbsp; Φιλελλήνων 7, Καλαμαριά &nbsp;·&nbsp;
+      <a href="tel:+302310495622">+30 231 049 5622</a>
+    </p>
+  </footer>
+
+  <script>
+    const T = {
+      el: {
+        nav_services:     "Υπηρεσίες",
+        nav_hours:        "Ώρες & Τοποθεσία",
+        nav_reviews:      "Κριτικές",
+        nav_contact:      "Επικοινωνία",
+        hero_eyebrow:     "Καλαμαριά, Θεσσαλονίκη",
+        hero_tagline:     "Φροντίδα για κάθε ύφασμα",
+        hero_sub:         "Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων στην Καλαμαριά της Θεσσαλονίκης.",
+        hero_rating_text: "— βαθμολογία πελατών",
+        hero_cta:         "Επικοινωνήστε μαζί μας",
+        services_label:   "Υπηρεσίες",
+        services_title:   "Τι κάνουμε",
+        s1_title: "Στρίψιμο παντελονιών",
+        s1_desc:  "Ακριβής αλλαγή μήκους σε κάθε τύπο παντελονιού με φινίρισμα που διατηρεί το αρχικό στυλ.",
+        s2_title: "Αντικατάσταση φερμουάρ",
+        s2_desc:  "Αντικατάσταση κατεστραμμένων φερμουάρ σε παντελόνια, φούστες, μπουφάν και τσάντες.",
+        s3_title: "Αλλαγές φορεμάτων",
+        s3_desc:  "Εφαρμογή, στένωμα, πλάτεμα και τροποποίηση φορεμάτων για τέλεια εφαρμογή στο σώμα σας.",
+        s4_title: "Γενικές επιδιορθώσεις",
+        s4_desc:  "Ράψιμο ραφών, επιδιόρθωση σκισμάτων, αντικατάσταση κουμπιών και γενική συντήρηση ρούχων.",
+        hours_label:    "Ώρες & Τοποθεσία",
+        hours_title:    "Πού θα μας βρείτε",
+        hours_sub:      "Ωράριο λειτουργίας",
+        hours_weekdays: "Δευτέρα – Παρασκευή",
+        hours_sat:      "Σάββατο",
+        hours_sun:      "Κυριακή",
+        hours_closed:   "Κλειστά",
+        reviews_label:  "Κριτικές",
+        reviews_title:  "Τι λένε οι πελάτες μας",
+        rating_text:    "βαθμολογία",
+        r1_text:  "“Εξαιρετική δουλειά! Έφερα ένα παντελόνι για στρίψιμο και ήταν έτοιμο την επόμενη μέρα. Τέλεια εφαρμογή και πολύ καλή τιμή.”",
+        r1_name:  "Μαρία Παπαδοπούλου",
+        r1_date:  "Μάρτιος 2025",
+        r2_text:  "“Αντικατέστησαν το φερμουάρ στο αγαπημένο μου μπουφάν που νόμιζα ότι είχε χαθεί. Γρήγορα, καθαρά και επαγγελματικά!”",
+        r2_name:  "Νίκος Αλεξίου",
+        r2_date:  "Ιανουάριος 2025",
+        r3_text:  "“Έφτιαξαν το νυφικό μου φόρεμα με απίστευτη λεπτομέρεια. Πολύ φιλικοί και επαγγελματίες. Τους συστήνω ανεπιφύλακτα!”",
+        r3_name:  "Ελένη Κωνσταντίνου",
+        r3_date:  "Φεβρουάριος 2025",
+        contact_label:  "Επικοινωνία",
+        contact_title:  "Στείλτε μας μήνυμα",
+        contact_blurb:  "Έχετε ρούχα που χρειάζονται επιδιόρθωση; Επικοινωνήστε μαζί μας και θα σας απαντήσουμε το συντομότερο δυνατό.",
+        contact_hours:  "Δευτέρα–Παρασκευή, 8:00–17:00",
+        f_name:       "Ονοματεπώνυμο",
+        f_name_ph:    "π.χ. Μαρία Παπαδοπούλου",
+        f_phone:      "Τηλέφωνο",
+        f_optional:   " (προαιρετικό)",
+        f_message:    "Μήνυμα",
+        f_message_ph: "Περιγράψτε τι επιδιόρθωση χρειάζεστε...",
+        f_submit:     "Αποστολή",
+        f_note:       "Θα σας απαντήσουμε εντός 1–2 εργάσιμων ημερών.",
+        f_success:    "Ευχαριστούμε! Το μήνυμά σας εστάλη. Θα επικοινωνήσουμε μαζί σας σύντομα.",
+      },
+      en: {
+        nav_services:     "Services",
+        nav_hours:        "Hours & Location",
+        nav_reviews:      "Reviews",
+        nav_contact:      "Contact",
+        hero_eyebrow:     "Kalamaria, Thessaloniki",
+        hero_tagline:     "Care for every fabric",
+        hero_sub:         "Professional clothing repairs and alterations in Kalamaria, Thessaloniki.",
+        hero_rating_text: "— customer rating",
+        hero_cta:         "Get in touch",
+        services_label:   "Services",
+        services_title:   "What we do",
+        s1_title: "Pants Hemming",
+        s1_desc:  "Precise length alterations for all trouser types, finished to preserve the original style.",
+        s2_title: "Zipper Replacement",
+        s2_desc:  "Replacement of broken or damaged zippers on trousers, skirts, jackets, and bags.",
+        s3_title: "Dress Alterations",
+        s3_desc:  "Fitting, taking in, letting out, and modifying dresses for a perfect tailored fit.",
+        s4_title: "General Mending",
+        s4_desc:  "Seam repairs, tear fixes, button replacement, and general garment maintenance.",
+        hours_label:    "Hours & Location",
+        hours_title:    "Find us",
+        hours_sub:      "Opening hours",
+        hours_weekdays: "Monday – Friday",
+        hours_sat:      "Saturday",
+        hours_sun:      "Sunday",
+        hours_closed:   "Closed",
+        reviews_label:  "Reviews",
+        reviews_title:  "What our customers say",
+        rating_text:    "rating",
+        r1_text:  "“Excellent work! I brought in a pair of trousers for hemming and they were ready the next day. Perfect fit and great price.”",
+        r1_name:  "Maria Papadopoulou",
+        r1_date:  "March 2025",
+        r2_text:  "“They replaced the zipper on my favourite jacket that I thought was ruined. Fast, clean, and professional!”",
+        r2_name:  "Nikos Alexiou",
+        r2_date:  "January 2025",
+        r3_text:  "“They altered my wedding dress with incredible attention to detail. Very friendly and professional. Highly recommend!”",
+        r3_name:  "Eleni Konstantinou",
+        r3_date:  "February 2025",
+        contact_label:  "Contact",
+        contact_title:  "Send us a message",
+        contact_blurb:  "Have clothes that need repairing? Get in touch and we’ll get back to you as soon as possible.",
+        contact_hours:  "Monday–Friday, 8:00–17:00",
+        f_name:       "Full name",
+        f_name_ph:    "e.g. Maria Papadopoulou",
+        f_phone:      "Phone",
+        f_optional:   " (optional)",
+        f_message:    "Message",
+        f_message_ph: "Describe what repair you need...",
+        f_submit:     "Send message",
+        f_note:       "We’ll get back to you within 1–2 business days.",
+        f_success:    "Thank you! Your message has been sent. We’ll be in touch shortly.",
+      }
+    };
+
+    let lang = 'el';
+
+    function applyLang(l) {
+      const t = T[l];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const k = el.getAttribute('data-i18n');
+        if (t[k] != null) el.textContent = t[k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const k = el.getAttribute('data-i18n-ph');
+        if (t[k] != null) el.placeholder = t[k];
+      });
+      document.getElementById('langBtn').textContent = l === 'el' ? 'EN' : 'ΕΛ';
+      document.documentElement.lang = l;
+    }
+
+    function toggleLang() {
+      lang = lang === 'el' ? 'en' : 'el';
+      applyLang(lang);
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      const successEl = document.getElementById('formSuccess');
+      successEl.textContent = T[lang].f_success;
+      successEl.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
