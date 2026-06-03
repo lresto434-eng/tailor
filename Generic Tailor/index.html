@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <meta http-equiv="Content-Language" content="el,en">
+  <title>[YOUR BUSINESS NAME] – Tailor &amp; Alterations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:      #FAF7F2;
+      --cream-dark: #F0E8D8;
+      --section-alt:#F5F0E8;
+      --terra:      #C1694F;
+      --terra-dark: #A8563E;
+      --charcoal:   #1E1E1E;
+      --brown:      #8B7355;
+      --brown-lt:   #D4C4A8;
+      --white:      #FFFFFF;
+      --star:       #E8A045;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--charcoal);
+      line-height: 1.6;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--charcoal);
+      padding: 0 2.5rem;
+      height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-decoration: none;
+    }
+    .logo em {
+      font-style: normal;
+      color: var(--terra);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--white); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .lang-btn {
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 0.3rem 0.75rem;
+      border-radius: 3px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.2s;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lang-btn:hover {
+      color: var(--white);
+      border-color: var(--white);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      margin: -10px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+      pointer-events: all;
+    }
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(150deg, var(--cream) 0%, var(--cream-dark) 100%);
+      padding: 7rem 2.5rem 6rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--terra);
+    }
+
+    .hero-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(193,105,79,0.12);
+      border: 1px solid rgba(193,105,79,0.35);
+      color: var(--terra);
+      padding: 0.35rem 0.9rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.6rem, 5vw, 4.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--charcoal);
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 .brand { color: var(--terra); }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 420px;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--terra);
+      color: var(--white);
+      padding: 1rem 2.2rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .hero-cta:hover { background: var(--terra-dark); transform: translateY(-2px); }
+    .hero-cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--brown-lt);
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--terra);
+      line-height: 1;
+      white-space: nowrap;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--brown);
+      line-height: 1.4;
+    }
+
+    /* ── SHARED ── */
+    section { padding: 5.5rem 2.5rem; }
+    .inner { max-width: 1080px; margin: 0 auto; }
+
+    .sec-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--terra);
+      border-bottom: 2px solid var(--terra);
+      padding-bottom: 3px;
+      margin-bottom: 1rem;
+    }
+
+    .sec-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 3rem;
+    }
+
+    /* ── WHY CHOOSE US ── */
+    #why { background: var(--cream); }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .why-item {
+      background: var(--white);
+      border: 1px solid var(--brown-lt);
+      border-radius: 6px;
+      padding: 2.5rem 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .why-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .why-icon {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    .why-item h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.6rem;
+    }
+    .why-item p {
+      font-size: 0.88rem;
+      color: #666;
+      line-height: 1.65;
+    }
+
+    /* ── SERVICES ── */
+    #services { background: var(--section-alt); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.4rem;
+    }
+
+    .srv-card {
+      background: var(--white);
+      border: 1px solid var(--brown-lt);
+      border-left: 3px solid var(--terra);
+      border-radius: 6px;
+      padding: 2rem 1.6rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .srv-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+    .srv-icon { font-size: 1.8rem; margin-bottom: 1rem; }
+    .srv-card h3 {
+      font-size: 0.95rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 0.55rem;
+    }
+    .srv-card p { font-size: 0.87rem; color: #666; line-height: 1.65; }
+
+    /* ── HOW IT WORKS ── */
+    #how { background: var(--cream); }
+
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+    }
+
+    .step {
+      position: relative;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--brown-lt);
+      border-radius: 4px;
+      background: var(--white);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .step:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .step-num {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: rgba(193,105,79,0.18);
+      line-height: 1;
+      margin-bottom: 0.8rem;
+    }
+    .step h3 {
+      font-size: 0.9rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--charcoal);
+      margin-bottom: 0.6rem;
+    }
+    .step p { font-size: 0.85rem; color: #666; line-height: 1.65; }
+
+    /* ── REVIEWS ── */
+    #reviews { background: var(--cream); }
+
+    .rating-row {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+    .big-score {
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .score-detail { display: flex; flex-direction: column; gap: 0.3rem; }
+    .score-stars { color: var(--star); font-size: 1.1rem; }
+    .score-sub { font-size: 0.8rem; color: var(--brown); font-weight: 500; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+    }
+
+    .review-card {
+      background: var(--white);
+      border: 1px solid var(--brown-lt);
+      border-radius: 4px;
+      padding: 1.8rem;
+    }
+    .rv-stars { color: var(--star); font-size: 0.9rem; margin-bottom: 1rem; }
+    .rv-text {
+      font-size: 0.92rem;
+      color: #444;
+      font-style: italic;
+      line-height: 1.75;
+      margin-bottom: 1.4rem;
+    }
+    .rv-name { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .rv-date { font-size: 0.78rem; color: var(--brown); margin-top: 0.2rem; }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--section-alt); }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .contact-info-block h3 {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      font-size: 0.92rem;
+    }
+    .info-item .ic { color: var(--terra); }
+    .info-item a { color: var(--charcoal); text-decoration: none; }
+    .info-item a:hover { color: var(--terra); }
+
+    .hours-mini { margin-top: 2rem; }
+    .hours-mini h4 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brown);
+      margin-bottom: 0.75rem;
+    }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.88rem;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--brown-lt);
+    }
+    .hours-row:last-child { border-bottom: none; }
+    .hours-row span:first-child { color: var(--brown); }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--charcoal);
+    }
+    .form-group input,
+    .form-group textarea {
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--brown-lt);
+      border-radius: 3px;
+      font-size: 0.92rem;
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--terra); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+
+    .btn-submit {
+      align-self: flex-start;
+      background: var(--charcoal);
+      color: var(--white);
+      border: none;
+      padding: 0.9rem 2.2rem;
+      border-radius: 3px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-family: 'Inter', sans-serif;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-submit:hover { background: var(--terra); }
+
+    .form-note { font-size: 0.8rem; color: var(--brown); }
+
+    .form-success {
+      display: none;
+      background: #f0f9f0;
+      border: 1px solid #b2dfb2;
+      border-radius: 4px;
+      padding: 1.4rem 1.6rem;
+      color: #2e6b2e;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--charcoal);
+      color: rgba(255,255,255,0.4);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.8rem;
+    }
+    footer a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-brand {
+      font-weight: 800;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+    }
+    .footer-brand em { font-style: normal; color: var(--terra); }
+
+    /* ── RESPONSIVE ── */
+
+    @media (min-width: 1400px) {
+      .hero { padding: 9rem 4rem 8rem; }
+      section { padding: 7rem 4rem; }
+      .hero-inner, .inner { max-width: 1280px; }
+    }
+
+    @media (max-width: 960px) {
+      header { padding: 0 1.4rem; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 66px;
+        left: 0; right: 0;
+        flex-direction: column;
+        align-items: flex-start;
+        background: #111;
+        padding: 1.4rem 1.5rem;
+        gap: 1.3rem;
+        border-bottom: 2px solid var(--terra);
+        z-index: 300;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a { font-size: 0.95rem; padding: 0.3rem 0; color: rgba(255,255,255,0.85); }
+      .hamburger { display: flex; }
+
+      .hero-inner { grid-template-columns: 1fr; gap: 3rem; }
+      .hero-right { flex-direction: row; flex-wrap: wrap; gap: 1rem; }
+      .stat-card { flex: 1 1 calc(50% - 0.5rem); }
+
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps-grid { grid-template-columns: repeat(2, 1fr); }
+      .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    }
+
+    @media (max-width: 520px) {
+      header { padding: 0 1rem; }
+      section { padding: 3.5rem 1rem; }
+      .hero { padding: 4rem 1rem 3.5rem; }
+
+      .hero-right { flex-direction: column; }
+      .stat-card { flex: none; width: 100%; }
+
+      .why-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .reviews-grid { grid-template-columns: 1fr; }
+
+      .btn-submit { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="#">
+      Alterations &amp; <em>[BUSINESS NAME]</em>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#why"      data-i18n="nav_why">Why us</a>
+      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#how"      data-i18n="nav_how">How it works</a>
+      <a href="#reviews"  data-i18n="nav_reviews">Reviews</a>
+      <a href="#contact"  data-i18n="nav_contact">Contact</a>
+    </nav>
+    <div class="header-right">
+      <button class="lang-btn" id="langBtn" type="button">EL</button>
+      <button class="hamburger" id="hamburger" type="button" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge" data-i18n="hero_badge">[YOUR CITY, YOUR NEIGHBOURHOOD]</div>
+        <h1><span data-i18n="hero_h1_a">The best</span><br><span class="brand">[BUSINESS NAME]</span><br><span data-i18n="hero_h1_b">in town</span></h1>
+        <p class="hero-sub" data-i18n="hero_sub">Professional clothing repairs and alterations. Fast, careful, and crafted with care.</p>
+        <a class="hero-cta" href="#contact" data-i18n="hero_cta">
+          Get a quote
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+      <div class="hero-right">
+        <!-- REPLACE X.X with your Google rating -->
+        <div class="stat-card">
+          <div class="stat-num">X.X★</div>
+          <div class="stat-label" data-i18n="stat1">Customer rating on Google</div>
+        </div>
+        <!-- REPLACE XX with your number of reviews -->
+        <div class="stat-card">
+          <div class="stat-num">XX</div>
+          <div class="stat-label" data-i18n="stat2">Reviews on Google</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section id="why">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="why_tag">Why us</p>
+      <h2 class="sec-title" data-i18n="why_title">What sets us apart</h2>
+      <div class="why-grid">
+        <!-- REPLACE each card with your own unique selling points -->
+        <div class="why-item">
+          <div class="why-icon">✂️</div>
+          <h3 data-i18n="why1_title">[Reason 1 Title]</h3>
+          <p data-i18n="why1_desc">[Describe what makes this quality stand out for your business.]</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">⚡</div>
+          <h3 data-i18n="why2_title">[Reason 2 Title]</h3>
+          <p data-i18n="why2_desc">[Describe your turnaround time or a speed-related advantage.]</p>
+        </div>
+        <div class="why-item">
+          <div class="why-icon">💰</div>
+          <h3 data-i18n="why3_title">[Reason 3 Title]</h3>
+          <p data-i18n="why3_desc">[Describe your pricing approach or value promise.]</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="services_tag">Services</p>
+      <h2 class="sec-title" data-i18n="services_title">What we do</h2>
+      <div class="services-grid">
+        <div class="srv-card">
+          <div class="srv-icon">👖</div>
+          <h3 data-i18n="s1_title">Pants Hemming</h3>
+          <p data-i18n="s1_desc">Precise length alterations for all trouser types, finished to preserve the original style.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon">🪡</div>
+          <h3 data-i18n="s2_title">Zipper Replacement</h3>
+          <p data-i18n="s2_desc">Replacement of broken or damaged zippers on trousers, skirts, jackets, and bags.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon">👗</div>
+          <h3 data-i18n="s3_title">Dress Alterations</h3>
+          <p data-i18n="s3_desc">Fitting, taking in, letting out, and modifying dresses for a perfect tailored fit.</p>
+        </div>
+        <div class="srv-card">
+          <div class="srv-icon">🧵</div>
+          <h3 data-i18n="s4_title">General Mending</h3>
+          <p data-i18n="s4_desc">Seam repairs, tear fixes, button replacement, and general garment maintenance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="how_tag">Process</p>
+      <h2 class="sec-title" data-i18n="how_title">How it works</h2>
+      <div class="steps-grid">
+        <div class="step">
+          <div class="step-num">01</div>
+          <h3 data-i18n="step1_title">Get in touch</h3>
+          <p data-i18n="step1_desc">Call us or send a message to describe what you need.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">02</div>
+          <h3 data-i18n="step2_title">Bring your garment</h3>
+          <!-- REPLACE with your shop address -->
+          <p data-i18n="step2_desc">Visit our shop at [YOUR ADDRESS] for measuring and assessment.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">03</div>
+          <h3 data-i18n="step3_title">We do the work</h3>
+          <p data-i18n="step3_desc">We carry out the repair with precision and attention to detail.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">04</div>
+          <h3 data-i18n="step4_title">Pick it up</h3>
+          <p data-i18n="step4_desc">Collect your garment ready and looking like new, at the agreed time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section id="reviews">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="nav_reviews">Reviews</p>
+      <h2 class="sec-title" data-i18n="reviews_title">What our customers say</h2>
+      <!-- REPLACE X.X and XX with your actual Google rating and review count -->
+      <div class="rating-row">
+        <div class="big-score">X.X</div>
+        <div class="score-detail">
+          <div class="score-stars">★★★★★</div>
+          <div class="score-sub" data-i18n="rating_sub">XX reviews on Google</div>
+        </div>
+      </div>
+      <!-- REPLACE each review card with real customer reviews -->
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r1_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r1_date">[X months ago]</div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r2_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r2_date">[X months ago]</div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r3_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r3_date">[X months ago]</div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r4_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r4_date">[X months ago]</div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r5_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r5_date">[X months ago]</div>
+        </div>
+        <div class="review-card">
+          <div class="rv-stars">★★★★★</div>
+          <p class="rv-text" data-i18n="r6_text">"[Paste a real customer review here. Keep it honest and in the customer's own words.]"</p>
+          <div class="rv-name">[Customer Name]</div>
+          <div class="rv-date" data-i18n="r6_date">[X months ago]</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="inner">
+      <p class="sec-tag" data-i18n="contact_tag">Contact</p>
+      <h2 class="sec-title" data-i18n="contact_title">Get a quote</h2>
+      <div class="contact-grid">
+        <div class="contact-info-block">
+          <h3 data-i18n="contact_find">Find us</h3>
+          <!-- REPLACE with your address -->
+          <div class="info-item">
+            <span class="ic">📍</span>
+            <span>[YOUR STREET ADDRESS, CITY, POSTAL CODE]</span>
+          </div>
+          <!-- REPLACE with your phone number -->
+          <div class="info-item">
+            <span class="ic">📞</span>
+            <a href="tel:[YOUR-PHONE]">[YOUR PHONE NUMBER]</a>
+          </div>
+          <!-- REPLACE hours with your actual opening hours -->
+          <div class="hours-mini">
+            <h4 data-i18n="hours_sub">Opening hours</h4>
+            <div class="hours-row">
+              <span data-i18n="hours_weekdays">Monday – Friday</span>
+              <span>[00:00 – 00:00]</span>
+            </div>
+            <div class="hours-row">
+              <span data-i18n="hours_sat">Saturday</span>
+              <span>[00:00 – 00:00 or Closed]</span>
+            </div>
+            <div class="hours-row">
+              <span data-i18n="hours_sun">Sunday</span>
+              <span data-i18n="hours_closed">Closed</span>
+            </div>
+          </div>
+          <!-- REPLACE the src with your own Google Maps embed link -->
+          <!-- To get your embed link: Google Maps → your address → Share → Embed a map → copy the src URL -->
+          <div style="margin-top:2rem; border-radius:4px; overflow:hidden; border:1px solid var(--brown-lt); height:200px; background:#f0ebe3; display:flex; align-items:center; justify-content:center;">
+            <p style="font-size:0.82rem; color:var(--brown); text-align:center; padding:1rem;">
+              Replace this block with your<br>Google Maps &lt;iframe&gt; embed
+            </p>
+          </div>
+        </div>
+        <div>
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname" data-i18n="f_name">Full name</label>
+                <input type="text" id="fname" name="name" required
+                  data-i18n-ph="f_name_ph" placeholder="e.g. Maria Papadopoulou">
+              </div>
+              <div class="form-group">
+                <label for="femail">Email</label>
+                <input type="email" id="femail" name="email" required placeholder="email@example.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="fphone">
+                <span data-i18n="f_phone">Phone</span><span style="font-weight:400;color:var(--brown);" data-i18n="f_optional"> (optional)</span>
+              </label>
+              <input type="tel" id="fphone" name="phone" placeholder="+1 555...">
+            </div>
+            <div class="form-group">
+              <label for="fmessage" data-i18n="f_message">Message</label>
+              <textarea id="fmessage" name="message" required
+                data-i18n-ph="f_message_ph" placeholder="Describe what repair you need..."></textarea>
+            </div>
+            <button type="submit" class="btn-submit" data-i18n="f_submit">Send message</button>
+            <p class="form-note" data-i18n="f_note">We will get back to you within 1–2 business days.</p>
+          </form>
+          <div class="form-success" id="formSuccess" data-i18n="f_success">
+            Thank you! Your message has been sent. We will be in touch shortly.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <!-- REPLACE with your business name, address, and phone -->
+  <footer>
+    <div class="footer-brand">Alterations – <em>[BUSINESS NAME]</em></div>
+    <div>© 2026 · [YOUR ADDRESS] · <a href="tel:[YOUR-PHONE]">[YOUR PHONE NUMBER]</a></div>
+  </footer>
+
+  <script>
+    const T = {
+      el: {
+        nav_why:      'Γιατί εμείς',
+        nav_services: 'Υπηρεσίες',
+        nav_how:      'Πώς λειτουργεί',
+        nav_reviews:  'Κριτικές',
+        nav_contact:  'Επικοινωνία',
+        hero_badge:   '[Η ΠΕΡΙΟΧΗ ΣΑΣ]',
+        hero_h1_a:    'Το καλύτερο',
+        hero_h1_b:    'στην πόλη',
+        hero_sub:     'Επαγγελματικές επιδιορθώσεις και ρετουσάρισμα ρούχων. Γρήγορα, προσεκτικά, με αγάπη για την τέχνη.',
+        hero_cta:     'Ζητήστε προσφορά',
+        stat1:        'Βαθμολογία πελατών στο Google',
+        stat2:        'Κριτικές στο Google',
+        why_tag:      'Γιατί εμείς',
+        why_title:    'Η διαφορά μας',
+        why1_title:   '[Λόγος 1]',
+        why1_desc:    '[Περιγράψτε αυτό που σας ξεχωρίζει.]',
+        why2_title:   '[Λόγος 2]',
+        why2_desc:    '[Περιγράψτε τον χρόνο παράδοσης ή άλλο πλεονέκτημα.]',
+        why3_title:   '[Λόγος 3]',
+        why3_desc:    '[Περιγράψτε την τιμολογιακή σας πολιτική.]',
+        services_tag:   'Υπηρεσίες',
+        services_title: 'Τι κάνουμε',
+        s1_title: 'Στρίψιμο παντελονιών',
+        s1_desc:  'Ακριβής αλλαγή μήκους σε κάθε τύπο παντελονιού με φινίρισμα που διατηρεί το αρχικό στυλ.',
+        s2_title: 'Αντικατάσταση φερμουάρ',
+        s2_desc:  'Αντικατάσταση κατεστραμμένων φερμουάρ σε παντελόνια, φούστες, μπουφάν και τσάντες.',
+        s3_title: 'Αλλαγές φορεμάτων',
+        s3_desc:  'Εφαρμογή, στένωμα, πλάτεμα και τροποποίηση φορεμάτων για τέλεια εφαρμογή στο σώμα σας.',
+        s4_title: 'Γενικές επιδιορθώσεις',
+        s4_desc:  'Ράψιμο ραφών, επιδιόρθωση σκισμάτων, αντικατάσταση κουμπιών και γενική συντήρηση ρούχων.',
+        how_tag:   'Διαδικασία',
+        how_title: 'Πώς λειτουργεί',
+        step1_title: 'Επικοινωνήστε μαζί μας',
+        step1_desc:  'Τηλεφωνήστε μας ή στείλτε μήνυμα για να περιγράψετε τι χρειάζεστε.',
+        step2_title: 'Φέρτε το ρούχο σας',
+        step2_desc:  'Επισκεφθείτε το κατάστημά μας στη [ΔΙΕΥΘΥΝΣΗ ΣΑΣ] για μέτρηση και αξιολόγηση.',
+        step3_title: 'Εκτελούμε την εργασία',
+        step3_desc:  'Αναλαμβάνουμε την επιδιόρθωση με ακρίβεια και προσοχή στη λεπτομέρεια.',
+        step4_title: 'Παραλάβετε έτοιμο',
+        step4_desc:  'Παραλαμβάνετε το ρούχο σας έτοιμο, σαν καινούριο, στον συμφωνημένο χρόνο.',
+        reviews_title: 'Τι λένε οι πελάτες μας',
+        rating_sub:    'XX κριτικές στο Google',
+        r1_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r1_date: '[Χ μήνες πριν]',
+        r2_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r2_date: '[Χ μήνες πριν]',
+        r3_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r3_date: '[Χ μήνες πριν]',
+        r4_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r4_date: '[Χ μήνες πριν]',
+        r5_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r5_date: '[Χ μήνες πριν]',
+        r6_text: '[Αντιγράψτε μια αληθινή κριτική πελάτη εδώ.]',
+        r6_date: '[Χ μήνες πριν]',
+        contact_tag:   'Επικοινωνία',
+        contact_title: 'Ζητήστε προσφορά',
+        contact_find:  'Βρείτε μας',
+        hours_sub:      'Ωράριο λειτουργίας',
+        hours_weekdays: 'Δευτέρα – Παρασκευή',
+        hours_sat:      'Σάββατο',
+        hours_sun:      'Κυριακή',
+        hours_closed:   'Κλειστά',
+        f_name:       'Ονοματεπώνυμο',
+        f_name_ph:    'π.χ. Μαρία Παπαδοπούλου',
+        f_phone:      'Τηλέφωνο',
+        f_optional:   ' (προαιρετικό)',
+        f_message:    'Μήνυμα',
+        f_message_ph: 'Περιγράψτε τι επιδιόρθωση χρειάζεστε...',
+        f_submit:     'Αποστολή',
+        f_note:       'Θα σας απαντήσουμε εντός 1–2 εργάσιμων ημερών.',
+        f_success:    'Ευχαριστούμε! Το μήνυμά σας εστάλη. Θα επικοινωνήσουμε μαζί σας σύντομα.',
+      },
+      en: {
+        nav_why:      'Why us',
+        nav_services: 'Services',
+        nav_how:      'How it works',
+        nav_reviews:  'Reviews',
+        nav_contact:  'Contact',
+        hero_badge:   '[YOUR CITY, YOUR NEIGHBOURHOOD]',
+        hero_h1_a:    'The best',
+        hero_h1_b:    'in town',
+        hero_sub:     'Professional clothing repairs and alterations. Fast, careful, and crafted with care.',
+        hero_cta:     'Get a quote',
+        stat1:        'Customer rating on Google',
+        stat2:        'Reviews on Google',
+        why_tag:      'Why us',
+        why_title:    'What sets us apart',
+        why1_title:   '[Reason 1 Title]',
+        why1_desc:    '[Describe what makes this quality stand out for your business.]',
+        why2_title:   '[Reason 2 Title]',
+        why2_desc:    '[Describe your turnaround time or a speed-related advantage.]',
+        why3_title:   '[Reason 3 Title]',
+        why3_desc:    '[Describe your pricing approach or value promise.]',
+        services_tag:   'Services',
+        services_title: 'What we do',
+        s1_title: 'Pants Hemming',
+        s1_desc:  'Precise length alterations for all trouser types, finished to preserve the original style.',
+        s2_title: 'Zipper Replacement',
+        s2_desc:  'Replacement of broken or damaged zippers on trousers, skirts, jackets, and bags.',
+        s3_title: 'Dress Alterations',
+        s3_desc:  'Fitting, taking in, letting out, and modifying dresses for a perfect tailored fit.',
+        s4_title: 'General Mending',
+        s4_desc:  'Seam repairs, tear fixes, button replacement, and general garment maintenance.',
+        how_tag:   'Process',
+        how_title: 'How it works',
+        step1_title: 'Get in touch',
+        step1_desc:  'Call us or send a message to describe what you need.',
+        step2_title: 'Bring your garment',
+        step2_desc:  'Visit our shop at [YOUR ADDRESS] for measuring and assessment.',
+        step3_title: 'We do the work',
+        step3_desc:  'We carry out the repair with precision and attention to detail.',
+        step4_title: 'Pick it up',
+        step4_desc:  'Collect your garment ready and looking like new, at the agreed time.',
+        reviews_title: 'What our customers say',
+        rating_sub:    'XX reviews on Google',
+        r1_text: '[Paste a real customer review here.]',
+        r1_date: '[X months ago]',
+        r2_text: '[Paste a real customer review here.]',
+        r2_date: '[X months ago]',
+        r3_text: '[Paste a real customer review here.]',
+        r3_date: '[X months ago]',
+        r4_text: '[Paste a real customer review here.]',
+        r4_date: '[X months ago]',
+        r5_text: '[Paste a real customer review here.]',
+        r5_date: '[X months ago]',
+        r6_text: '[Paste a real customer review here.]',
+        r6_date: '[X months ago]',
+        contact_tag:   'Contact',
+        contact_title: 'Get a quote',
+        contact_find:  'Find us',
+        hours_sub:      'Opening hours',
+        hours_weekdays: 'Monday – Friday',
+        hours_sat:      'Saturday',
+        hours_sun:      'Sunday',
+        hours_closed:   'Closed',
+        f_name:       'Full name',
+        f_name_ph:    'e.g. Jane Smith',
+        f_phone:      'Phone',
+        f_optional:   ' (optional)',
+        f_message:    'Message',
+        f_message_ph: 'Describe what repair you need...',
+        f_submit:     'Send message',
+        f_note:       'We will get back to you within 1–2 business days.',
+        f_success:    'Thank you! Your message has been sent. We will be in touch shortly.',
+      }
+    };
+
+    var lang = localStorage.getItem('lang') || 'en';
+
+    function applyLang(l) {
+      var t = T[l];
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var k = el.getAttribute('data-i18n');
+        if (t[k] != null) el.textContent = t[k];
+      });
+      document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+        var k = el.getAttribute('data-i18n-ph');
+        if (t[k] != null) el.placeholder = t[k];
+      });
+      document.getElementById('langBtn').textContent = l === 'el' ? 'EN' : 'EL';
+      document.documentElement.lang = l;
+      localStorage.setItem('lang', l);
+    }
+
+    applyLang(lang);
+
+    function bindBtn(id, fn) {
+      var el = document.getElementById(id);
+      var didTouch = false;
+      el.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        didTouch = true;
+        fn();
+      });
+      el.addEventListener('click', function() {
+        if (didTouch) { didTouch = false; return; }
+        fn();
+      });
+    }
+
+    bindBtn('langBtn', function() {
+      lang = lang === 'el' ? 'en' : 'el';
+      applyLang(lang);
+    });
+
+    bindBtn('hamburger', function() {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(function(a) {
+      a.addEventListener('click', function() {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      var s = document.getElementById('formSuccess');
+      s.textContent = T[lang].f_success;
+      s.style.display = 'block';
+    });
+  </script>
+</body>
+</html>
