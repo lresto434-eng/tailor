@@ -1,2 +1,2 @@
 🔗 Live Demo: https://lresto434-eng.github.io/tailor/ ||||
-🔗 Live Demo:
+🔗 Live Demo: https://lresto434-eng.github.io/BarberShop/
